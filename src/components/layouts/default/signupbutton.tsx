@@ -8,9 +8,9 @@ const signupbutton = ({ callback, selected }: IProps) => {
     <button
       type='button'
       onClick={callback}
-      className={`focus:outline-none bg-gray-800 p-2 rounded-md hover:bg-gray-900 active:bg-gray-900
+      className={`focus:ring-2 focus:ring-gray-800 focus:outline-white bg-gray-800 p-2 rounded-md hover:bg-gray-900 active:bg-gray-1900
       transform hover:scale-105 duration-200 ease-linear ${
-        selected ? 'border-2 border-green-500 bg-gray-400 ' : null
+        selected ? '' : null
       }`}
     >
       <h1 className='text-white sm:text-sm  tracking-wider capitalize'>

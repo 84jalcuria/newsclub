@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Logo from '@/components/logo';
-import SignUpButton from '@/components/signupbutton';
-import NavItem from '@/components/navitem';
-import ToggleSideBar from '@/components/togglesidebarmenu';
-import SideBar from '@/components/sidebar';
+import Logo from '@/components/common/logo';
+import SignUpButton from '@/components/layouts/default/signupbutton';
+import NavItem from '@/components/layouts/default/navitem';
+import ToggleSideBar from '@/components/layouts/default/togglesidebarmenu';
+import SideBar from '@/components/layouts/common/sidebar';
 import { useRouter } from 'next/router';
 
 const Header = () => {

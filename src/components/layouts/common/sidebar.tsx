@@ -1,5 +1,5 @@
-import Tittle from '@/components/title';
-import SideBarItem from '@/components/sidebaritem';
+import Tittle from '@/components/common/title';
+import SideBarItem from '@/components/layouts/common/sidebaritem';
 import { useRouter } from 'next/router';
 
 interface IProps {

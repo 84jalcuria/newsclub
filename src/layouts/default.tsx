@@ -1,13 +1,13 @@
-import type { NextPage } from 'next';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Cursor from '@/components/cursor';
+//import type { NextPage } from 'next';
+//import Cursor from '@/components/cursor';
+import Header from '@/components/layouts/default/header';
+import Footer from '@/components/layouts/default/footer';
 
 interface IProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: IProps) => {
+const Default = ({ children }: IProps) => {
   return (
     <div
       className='w-full min-h-screen bg-transparent container mx-auto flex flex-col justify-between items-center
@@ -24,4 +24,4 @@ const Layout = ({ children }: IProps) => {
   );
 };
 
-export default Layout;
+export default Default;

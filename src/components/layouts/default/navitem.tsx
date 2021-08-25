@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import RouteMark from '@/components/routemark';
+import RouteMark from '@/components/layouts/default/routemark';
 
 interface IProps {
   label: string;

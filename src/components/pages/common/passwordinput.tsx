@@ -1,17 +1,20 @@
 import { useState } from 'react';
-
 import Image from 'next/image';
 import password from '@/assets/password.png';
 import view from '@/assets/view.png';
 import notview from '@/assets/not-view.png';
 
-const PasswordInput = () => {
+interface IProps {
+  placeholder: string;
+}
+
+const PasswordInput = ({ placeholder }: IProps) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className='relative'>
       <input
         type={showPassword ? 'text' : 'password'}
-        placeholder='Password'
+        placeholder={placeholder}
         className='w-full border-2 border-gray-200 rounded-md py-1 sm:py-2 px-6 sm:px-8 focus:outline-none focus:border-gray-700
           hover:bg-gray-100 text-gray-700 text-xs sm:text-sm font-normal tracking-wider'
       />

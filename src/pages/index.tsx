@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Logo from '@/components/logo';
+import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
 
 const Home = () => {

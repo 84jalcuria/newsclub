@@ -1,4 +1,4 @@
-import Illustration from '@/components/illustration';
+import Illustration from '@/components/pages/common/illustration';
 
 const Welcome = () => {
   return (
