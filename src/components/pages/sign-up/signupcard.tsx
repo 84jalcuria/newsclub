@@ -29,7 +29,10 @@ const SignUpCard = () => {
   const fullname = register('fullname', {
     required: { value: true, message: 'required' },
     pattern: {
-      value: /^[\A-Za-z]+[\A-Za-z\s]{1,50}$/,
+      // value: /^[\A-Za-z]+[\A-Za-z\s]{1,50}$/,
+      //value: /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]*)$/,
+      value:
+        /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]+)([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/,
       message: 'only letters.',
     },
     minLength: {
@@ -41,7 +44,8 @@ const SignUpCard = () => {
   const username = register('username', {
     required: { value: true, message: 'required' },
     pattern: {
-      value: /^[\dA-Za-z]+[\dA-Za-z\s]{1,50}$/,
+      //value: /^[\dA-Za-z]+[\dA-Za-z\s]{1,50}$/,
+      value: /^([\dA-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]+)$/,
       message: 'only alphanumeric.',
     },
     minLength: {
@@ -61,8 +65,9 @@ const SignUpCard = () => {
   const password = register('password', {
     required: { value: true, message: 'required' },
     pattern: {
-      value: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
-      message: 'weak password.',
+      //value: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,})/,
+      value: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{3,})/,
+      message: 'use capital letter, lower case and digit.',
     },
   });
 

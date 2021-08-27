@@ -27,7 +27,7 @@ const UserNameInput = ({
           error ? 'border-red-500' : 'border-gray-200'
         }  rounded-md py-1 sm:py-2 px-7 sm:px-9 focus:outline-none ${
           error ? 'focus:border-red-500' : 'focus:border-gray-800'
-        } focus:border-gray-800
+        } 
         hover:bg-gray-100 text-gray-700 text-sm sm:text-base font-normal tracking-wider`}
       />
       <div className='absolute w-5 h-5 sm:w-6 sm:h-6 top-[6px] sm:top-[9px] left-1'>
