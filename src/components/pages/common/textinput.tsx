@@ -5,14 +5,29 @@ interface IProps {
   placeholder: string;
 }
 
-const TextInput = ({ placeholder }: IProps) => {
+const TextInput = ({
+  error,
+  placeholder,
+  inputRef,
+  name,
+  onChange,
+  onBlur,
+}) => {
   return (
     <div className='relative'>
       <input
         type='text'
         placeholder={placeholder}
-        className='w-full border-2 border-gray-200 rounded-md py-1 sm:py-2 px-6 sm:px-8 focus:outline-none focus:border-gray-800
-        hover:bg-gray-100 text-gray-700 text-xs sm:text-sm font-normal tracking-wider'
+        name={name}
+        ref={inputRef}
+        onChange={onChange}
+        onBlur={onBlur}
+        className={`w-full border-2 ${
+          error ? 'border-red-500' : 'order-gray-200'
+        } b rounded-md py-1 sm:py-2 px-6 sm:px-8 focus:outline-none ${
+          error ? 'focus:border-red-500' : 'focus:border-gray-800'
+        } 
+        hover:bg-gray-100 text-gray-700 text-xs sm:text-sm font-normal tracking-wider`}
       />
       <svg
         className='absolute w-4 h-4 sm:w-6 sm:h-6 top-[6px] sm:top-2 left-1 text-gray-400'

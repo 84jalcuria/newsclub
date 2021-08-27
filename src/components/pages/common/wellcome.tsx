@@ -19,7 +19,7 @@ const TextMobile = () => {
         Wellcome to{' '}
         <span className='text-green-600 text-xl font-medium'>NewsClub</span>
       </h1>
-      <span className='text-gray-400 text-xs sm:text-base capitalize '>
+      <span className='text-gray-400 text-sm sm:text-base capitalize '>
         shorter and share your links
       </span>
     </div>

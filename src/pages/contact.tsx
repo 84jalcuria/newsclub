@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div className='w-full flex-grow flex justify-center items-center'>
       <Head>
-        <title>NewsClub</title>
+        <title>Contact</title>
         <meta name='description' content='shortener link' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

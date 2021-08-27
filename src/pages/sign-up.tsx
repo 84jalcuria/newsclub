@@ -11,7 +11,8 @@ const SignUp = () => {
         <meta name='description' content='SignUp page' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className=' sm:flex-1 flex flex-col justify-center items-center'>
+
+      <div className='sm:flex-1 flex flex-col justify-center items-center'>
         <Wellcome />
         <div className='self-start hidden sm:block w-[80%] max-w-md mt-16'>
           <ReferredByCard
