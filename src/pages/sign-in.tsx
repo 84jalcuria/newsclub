@@ -11,7 +11,6 @@ const SignIn = () => {
 
   useEffect(() => {
     if (sessionState.session) {
-      console.log(sessionState.session);
       router.replace('/dashboard');
     }
   }, [sessionState.session]);
