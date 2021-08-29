@@ -94,7 +94,7 @@ const SignUp = async (
       dispatch({ type: 'success', session: data });
     } else {
       /*-----------------------ERRORS-------------------------*/
-      if (status === 400) {
+      if (status === 400 || status === 404) {
         dispatch({
           type: 'error',
           error: { status, message: 'username already exits.' },
