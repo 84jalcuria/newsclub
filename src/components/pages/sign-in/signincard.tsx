@@ -6,7 +6,7 @@ import SignInButton from '@/components/common/authbutton';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/pages/common/errormessage';
-//import { useRouter } from 'next/router';
+import { useSession, SignIn } from '@/context/session-context';
 
 type DataForm = {
   username: string;
@@ -14,19 +14,26 @@ type DataForm = {
 };
 
 const SignInCard = () => {
-  //const router = useRouter();
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
-  const [backendMessage, setBackendMessage] = useState('');
-  const [submitting, setSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<DataForm>({ mode: 'onChange' });
 
+  const { state: sessionState, dispatch: sessionDispatch } = useSession();
+
   const BOTMESSAGE = 'check you are not a robot?';
-  const BACKENDMESSAGE = 'credentials are incorrect.';
+
+  const onSignIn = async (data) => {
+    const { username, password } = data;
+    if (bot) {
+      setBotMessage(BOTMESSAGE);
+      return;
+    }
+    await SignIn(sessionDispatch, { userName: username, password: password });
+  };
 
   const username = register('username', {
     required: { value: true, message: 'required' },
@@ -44,21 +51,6 @@ const SignInCard = () => {
       setBotMessage(BOTMESSAGE);
     }
   }
-
-  const onSignIn = (data) => {
-    if (bot) {
-      setBotMessage(BOTMESSAGE);
-      return;
-    }
-    //GO ON
-    setSubmitting(true);
-    setBackendMessage('');
-    setTimeout(() => {
-      setSubmitting(false);
-      setBackendMessage(BACKENDMESSAGE);
-      //router.replace('/dashboard');
-    }, 3000);
-  };
 
   return (
     <div className='w-full max-w-md bg-white px-3 sm:px-5 py-10 shadow-2xl rounded-md'>
@@ -110,7 +102,9 @@ const SignInCard = () => {
           />
           {botMessage && <ErrorMessage message={botMessage} />}
         </div>
-        {backendMessage && <ErrorMessage message={backendMessage} size='lg' />}
+        {sessionState.error && (
+          <ErrorMessage message={sessionState.error.message} size='lg' />
+        )}
 
         <Link href='/sign-up'>
           <a
@@ -120,7 +114,7 @@ const SignInCard = () => {
             I have not a account
           </a>
         </Link>
-        <SignInButton label={'login'} submitting={submitting} />
+        <SignInButton label={'login'} submitting={sessionState.loading} />
       </form>
     </div>
   );

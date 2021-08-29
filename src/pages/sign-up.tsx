@@ -1,9 +1,19 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Wellcome from '@/components/pages/common/wellcome';
 import SignUpCard from '@/components/pages/sign-up/signupcard';
 import ReferredByCard from '@/components/pages/sign-up/referredbycarddesktop';
+import { useSession } from '@/context/session-context';
+import { useRouter } from 'next/router';
 
 const SignUp = () => {
+  const router = useRouter();
+  const { state: sessionState } = useSession();
+
+  useEffect(() => {
+    if (sessionState.session) router.replace('/dashboard');
+  }, [sessionState.session]);
+
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row sm:py-16'>
       <Head>

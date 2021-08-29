@@ -1,16 +1,20 @@
 import { useEffect } from 'react';
-import type { NextPage } from 'next';
+//import type { NextPage } from 'next';
 import Head from 'next/head';
 import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
+import { useSession } from '@/context/session-context';
 
 const Home = () => {
+  const { state: sessionState } = useSession();
   const router = useRouter();
+
   useEffect(() => {
     setTimeout(() => {
       router.replace('/sign-in');
-    }, 5000);
-  }, []);
+    }, 3000);
+  }, [sessionState.session]);
+
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <Head>

@@ -1,8 +1,21 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Wellcome from '@/components/pages/common/wellcome';
 import SignInCard from '@/components/pages/sign-in/signincard';
+import { useSession } from '@/context/session-context';
+import { useRouter } from 'next/router';
 
 const SignIn = () => {
+  const router = useRouter();
+  const { state: sessionState } = useSession();
+
+  useEffect(() => {
+    if (sessionState.session) {
+      console.log(sessionState.session);
+      router.replace('/dashboard');
+    }
+  }, [sessionState.session]);
+
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row '>
       <Head>

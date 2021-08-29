@@ -4,6 +4,7 @@ import Default from '@/layouts/default';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { SessionProvider } from '@/context/session-context';
 
 NProgress.configure({ showSpinner: false });
 
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }) {
       : ({ children }) => <>{children}</>;
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <SessionProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
     </>
   );
 }

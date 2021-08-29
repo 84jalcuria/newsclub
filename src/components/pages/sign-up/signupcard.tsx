@@ -9,22 +9,47 @@ import ReferredBy from '@/components/pages/sign-up/referredby';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/pages/common/errormessage';
+import { useSession, SignUp } from '@/context/session-context';
+import router from 'next/router';
+
+interface DataForm {
+  fullname: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmpassword: string;
+  terms: string;
+}
 
 const SignUpCard = () => {
-  const [submitting, setSubmitting] = useState(false);
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
-  const [backendMessage, setBackendMessage] = useState('');
 
   const BOTMESSAGE = 'check you are not a robot?';
-  const BACKENDMESSAGE = 'username is not available.';
 
   const {
     register,
     handleSubmit,
     getValues,
     formState: { errors },
-  } = useForm();
+  } = useForm<DataForm>();
+
+  const { state: sessionState, dispatch: sessionDispatch } = useSession();
+
+  const onSignUp = async (data) => {
+    const { username, password, fullname, email } = data;
+    if (bot) {
+      setBotMessage(BOTMESSAGE);
+      return;
+    }
+    await SignUp(sessionDispatch, {
+      fullName: fullname,
+      userName: username,
+      password: password,
+      email: email,
+      referralOf: '9023480953945', //TODO: this value must to be dynamic
+    });
+  };
 
   const fullname = register('fullname', {
     required: { value: true, message: 'required' },
@@ -89,23 +114,6 @@ const SignUpCard = () => {
       setBotMessage(BOTMESSAGE);
     }
   }
-
-  const onSignUp = (data) => {
-    if (bot) {
-      setBotMessage(BOTMESSAGE);
-      return;
-    }
-    //GO ON
-
-    console.log(data);
-    setSubmitting(true);
-    setBackendMessage('');
-    setTimeout(() => {
-      setSubmitting(false);
-      setBackendMessage(BACKENDMESSAGE);
-      //router.replace('/dashboard');
-    }, 3000);
-  };
 
   return (
     <div className='w-full max-w-md bg-white px-3 sm:px-5 pb-10 pt-6 shadow-2xl rounded-md'>
@@ -235,7 +243,9 @@ const SignUpCard = () => {
           )}
         </div>
         {/*--------------------------------------------*/}
-        {backendMessage && <ErrorMessage message={backendMessage} size='lg' />}
+        {sessionState.error && (
+          <ErrorMessage message={sessionState.error.message} size='lg' />
+        )}
         <Link href='/sign-in'>
           <a
             href='#'
@@ -245,7 +255,7 @@ const SignUpCard = () => {
             I have a account
           </a>
         </Link>
-        <SignUpButton label={'sign up'} submitting={submitting} />
+        <SignUpButton label={'sign up'} submitting={sessionState.loading} />
       </form>
     </div>
   );
