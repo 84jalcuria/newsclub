@@ -1,4 +1,5 @@
 import Illustration from '@/components/pages/common/illustration';
+import { useTranslations } from 'next-intl';
 
 const Welcome = () => {
   return (
@@ -13,30 +14,36 @@ const Welcome = () => {
 };
 
 const TextMobile = () => {
+  const t = useTranslations('wellcome-message');
   return (
     <div className=' sm:hidden text-center'>
       <h1 className='text-gray-800 text-base font-extrabold tracking-wide'>
-        Wellcome to{' '}
-        <span className='text-green-600 text-xl font-medium'>NewsClub</span>
+        {/*Wellcome to */}
+        {t('wellcome')}
+        <span className='text-green-600 text-xl font-medium ml-2'>
+          NewsClub
+        </span>
       </h1>
       <span className='text-gray-400 text-sm sm:text-base capitalize '>
-        shorter and share your links
+        {t('description')}
       </span>
     </div>
   );
 };
 
 const TextDesktop = () => {
+  const t = useTranslations('wellcome-message');
   return (
     <div className='hidden sm:block text-center'>
       <h1 className=' text-gray-800 text-lg sm:text-xl lg:text-2xl font-extrabold tracking-wide'>
-        Wellcome to{' '}
-        <span className='text-green-600 text-xl sm:text-2xl lg:text-3xl font-medium'>
+        {/*Wellcome to*/}
+        {t('wellcome')}
+        <span className='text-green-600 text-xl sm:text-2xl lg:text-3xl font-medium ml-2'>
           NewsClub
         </span>
       </h1>
       <span className='text-gray-400 text-xs sm:text-sm md:text-base capitalize'>
-        shorter and share your links
+        {t('description')}
       </span>
     </div>
   );

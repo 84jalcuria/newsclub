@@ -15,4 +15,12 @@ const About = () => {
 
 About.Layout = 'default';
 
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: require(`../lang/${locale}.json`),
+    },
+  };
+}
+
 export default About;

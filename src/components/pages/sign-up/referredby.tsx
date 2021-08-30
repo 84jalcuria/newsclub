@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import Card from '@/components/pages/sign-up/referrredbycard';
+import Card from '@/components/pages/sign-up/referrredbycardmobile';
+import { useTranslations } from 'next-intl';
 
 const ReferredBy = () => {
+  const t = useTranslations('referred-by');
   const [showCard, setShowCard] = useState(false);
   return (
     <div className='w-full flex flex-col justify-center items-start space-y-1'>
@@ -10,7 +12,9 @@ const ReferredBy = () => {
         onClick={() => setShowCard(!showCard)}
         className='flex justify-center items-center focus:outline-none'
       >
-        <h1 className='text-green-600 text-xs capitalize'>referred by</h1>
+        <h1 className='text-green-600 text-xs capitalize'>
+          {t('placeholder')}
+        </h1>
         <svg
           className={`h-5 w-5 text-green-600 self-end pt-[2px] ${
             showCard ? 'transform rotate-90' : ''

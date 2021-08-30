@@ -16,7 +16,7 @@ const SideBarItem = ({ children: svg, label, callback, selected }: IProps) => {
       }`}
     >
       {svg}
-      <h1 className='text-gray-800 text-sm font-normal tracking-wide capitalize'>
+      <h1 className='text-gray-800 text-base font-normal tracking-wide capitalize'>
         {label}
       </h1>
     </button>

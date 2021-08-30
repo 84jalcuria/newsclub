@@ -5,6 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { SessionProvider } from '@/context/session-context';
+import { NextIntlProvider } from 'next-intl';
 
 NProgress.configure({ showSpinner: false });
 
@@ -27,11 +28,13 @@ function MyApp({ Component, pageProps }) {
       : ({ children }) => <>{children}</>;
   return (
     <>
-      <SessionProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
+      <NextIntlProvider messages={pageProps.messages}>
+        <SessionProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SessionProvider>
+      </NextIntlProvider>
     </>
   );
 }

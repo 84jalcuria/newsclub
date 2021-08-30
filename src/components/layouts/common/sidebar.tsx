@@ -1,12 +1,14 @@
 import Tittle from '@/components/common/title';
 import SideBarItem from '@/components/layouts/common/sidebaritem';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 
 interface IProps {
   onClose: () => void;
 }
 
 const SideBar = ({ onClose }: IProps) => {
+  const t = useTranslations('nav');
   const router = useRouter();
   const isSelected = (pathname: string) => pathname === router.asPath;
   return (
@@ -37,7 +39,7 @@ const SideBar = ({ onClose }: IProps) => {
       {/*-------------------------Navigation SideBar------------------------------*/}
       <div className='flex-grow w-full flex flex-col justify-start items-start '>
         <SideBarItem
-          label={'Login'}
+          label={t('sign-in')}
           callback={() => {
             onClose();
             router.push('/sign-in');
@@ -60,7 +62,7 @@ const SideBar = ({ onClose }: IProps) => {
           </svg>
         </SideBarItem>
         <SideBarItem
-          label={'Sign Up'}
+          label={t('sign-up')}
           callback={() => {
             onClose();
             router.push('/sign-up');
@@ -77,7 +79,7 @@ const SideBar = ({ onClose }: IProps) => {
           </svg>
         </SideBarItem>
         <SideBarItem
-          label={'about'}
+          label={t('about')}
           callback={() => {
             onClose();
             router.push('/about');
@@ -94,7 +96,7 @@ const SideBar = ({ onClose }: IProps) => {
           </svg>
         </SideBarItem>
         <SideBarItem
-          label={'contact'}
+          label={t('contact')}
           callback={() => {
             onClose();
             router.push('/contact');

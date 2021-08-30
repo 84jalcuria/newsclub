@@ -10,7 +10,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/pages/common/errormessage';
 import { useSession, SignUp } from '@/context/session-context';
-import router from 'next/router';
+import { useTranslations } from 'next-intl';
 
 interface DataForm {
   fullname: string;
@@ -22,10 +22,11 @@ interface DataForm {
 }
 
 const SignUpCard = () => {
+  const t = useTranslations('sign-up.card');
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
 
-  const BOTMESSAGE = 'check you are not a robot?';
+  const BOTMESSAGE = t('bot-message');
 
   const {
     register,
@@ -52,58 +53,58 @@ const SignUpCard = () => {
   };
 
   const fullname = register('fullname', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('fullname.error.required') },
     pattern: {
       // value: /^[\A-Za-z]+[\A-Za-z\s]{1,50}$/,
       //value: /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]*)$/,
       value:
         /^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]+)([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/,
-      message: 'only letters.',
+      message: t('fullname.error.format'),
     },
     minLength: {
       value: 3,
-      message: 'more than 3 character.',
+      message: t('fullname.error.length'),
     },
   });
 
   const username = register('username', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('username.error.required') },
     pattern: {
       //value: /^[\dA-Za-z]+[\dA-Za-z\s]{1,50}$/,
       value: /^([\dA-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]+)$/,
-      message: 'only alphanumeric.',
+      message: t('username.error.format'),
     },
     minLength: {
       value: 3,
-      message: 'more than 3 character.',
+      message: t('username.error.length'),
     },
   });
 
   const email = register('email', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('email.error.required') },
     pattern: {
       value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-      message: 'only email.',
+      message: t('email.error.format'),
     },
   });
 
   const password = register('password', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('password.error.required') },
     pattern: {
       //value: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,})/,
       value: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{3,})/,
-      message: 'use capital letter, lower case and digit.',
+      message: t('password.error.format'),
     },
   });
 
   const confirmpassword = register('confirmpassword', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('confirmpassword.error.required') },
     validate: (value) =>
-      value === getValues('password') || 'password not match',
+      value === getValues('password') || t('confirmpassword.error.format'),
   });
 
   const terms = register('terms', {
-    required: { value: true, message: 'accept all terms of use.' },
+    required: { value: true, message: t('terms.error.required') },
   });
 
   function captchaOnChange(token) {
@@ -123,7 +124,7 @@ const SignUpCard = () => {
       >
         <div className='w-full flex flex-col justify-center items-center space-y-3'>
           <h1 className='capitalize text-gray-800 text-base md:text-xl font-medium self-center mb-2'>
-            create your account
+            {t('title')}
           </h1>
           <div className='w-full self-start sm:hidden'>
             <ReferredBy />
@@ -131,7 +132,7 @@ const SignUpCard = () => {
         </div>
         <div className='w-full relative z-30'>
           <TextInput
-            placeholder={'Full Name'}
+            placeholder={t('fullname.placeholder')}
             name={fullname.name}
             inputRef={fullname.ref}
             onChange={fullname.onChange}
@@ -147,7 +148,7 @@ const SignUpCard = () => {
         </div>
         <div className='w-full relative z-30'>
           <EmailInput
-            placeholder={'Email'}
+            placeholder={t('email.placeholder')}
             name={email.name}
             inputRef={email.ref}
             onChange={email.onChange}
@@ -163,7 +164,7 @@ const SignUpCard = () => {
         </div>{' '}
         <div className='w-full relative z-30'>
           <UserNameInput
-            placeholder={'Username'}
+            placeholder={t('username.placeholder')}
             name={username.name}
             inputRef={username.ref}
             onChange={username.onChange}
@@ -179,7 +180,7 @@ const SignUpCard = () => {
         </div>
         <div className='w-full relative z-30'>
           <PasswordInput
-            placeholder={'Password'}
+            placeholder={t('password.placeholder')}
             name={password.name}
             inputRef={password.ref}
             onChange={password.onChange}
@@ -195,7 +196,7 @@ const SignUpCard = () => {
         </div>
         <div className='w-full relative z-30'>
           <PasswordInput
-            placeholder={'Confirm Pasword'}
+            placeholder={t('confirmpassword.placeholder')}
             name={confirmpassword.name}
             inputRef={confirmpassword.ref}
             onChange={confirmpassword.onChange}
@@ -231,9 +232,9 @@ const SignUpCard = () => {
           <Link href='/terms'>
             <a
               href='#'
-              className='select-none ml-1 text-green-600 text-xs sm:text-sm font-semibold tracking-normal cursor-pointer underline'
+              className='select-none ml-1 text-green-600 text-xs font-semibold tracking-normal cursor-pointer underline'
             >
-              Accept all terms of use
+              {t('terms.placeholder')}
             </a>
           </Link>
           {errors?.terms && (
@@ -244,7 +245,15 @@ const SignUpCard = () => {
         </div>
         {/*--------------------------------------------*/}
         {sessionState.error && (
-          <ErrorMessage message={sessionState.error.message} size='lg' />
+          <ErrorMessage
+            message={
+              sessionState.error.status === 404 ||
+              sessionState.error.status === 400
+                ? t('credentials-error')
+                : ''
+            }
+            size='lg'
+          />
         )}
         <Link href='/sign-in'>
           <a
@@ -252,10 +261,10 @@ const SignUpCard = () => {
             type='button'
             className='self-start text-gray-800 text-xs sm:text-sm font-bold tracking-normal  underline ml-1'
           >
-            I have a account
+            {t('sign-in-link')}
           </a>
         </Link>
-        <SignUpButton label={'sign up'} submitting={sessionState.loading} />
+        <SignUpButton label={t('button')} submitting={sessionState.loading} />
       </form>
     </div>
   );

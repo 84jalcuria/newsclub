@@ -5,8 +5,10 @@ import NavItem from '@/components/layouts/default/navitem';
 import ToggleSideBar from '@/components/layouts/default/togglesidebarmenu';
 import SideBar from '@/components/layouts/common/sidebar';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 
 const Header = () => {
+  const t = useTranslations('nav');
   const [showSideBar, setShowSideBar] = useState(false);
   const router = useRouter();
   const isSelected = (pathname: string) => pathname === router.asPath;
@@ -35,23 +37,24 @@ const Header = () => {
       <div className='hidden flex-grow sm:flex justify-between items-center'>
         <nav className='flex space-x-12'>
           <NavItem
-            label='about'
+            label={t('about')}
             href={'/about'}
             selected={isSelected('/about')}
           />
           <NavItem
-            label='contact'
+            label={t('contact')}
             href={'/contact'}
             selected={isSelected('/contact')}
           />
         </nav>
         <nav className='flex justify-center items-center space-x-12'>
           <NavItem
-            label='login'
+            label={t('sign-in')}
             href={'/sign-in'}
             selected={isSelected('/sign-in')}
           />
           <SignUpButton
+            label={t('sign-up')}
             callback={() => router.push('/sign-up')}
             selected={isSelected('/sign-up')}
           />

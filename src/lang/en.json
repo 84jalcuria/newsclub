@@ -1,0 +1,90 @@
+{
+  "rights": {
+    "placeholder": "all rigths reserved."
+  },
+  "nav": {
+    "about": "about",
+    "contact": "contact",
+    "sign-in": "login",
+    "sign-up": "sign up"
+  },
+  "wellcome-message": {
+    "wellcome": "Wellcome to",
+    "description": "shorter and share your links"
+  },
+  "sign-in": {
+    "page-title": "Sign In",
+    "card": {
+      "title": "login and go on",
+      "username": {
+        "placeholder": "user name",
+        "error": "required"
+      },
+      "password": {
+        "placeholder": "password",
+        "error": "required"
+      },
+      "bot-message": "Check you are not a robot",
+      "credentials-error": "the credentials arer wrong.",
+      "sign-up-link": "I have not a account",
+      "button": "login"
+    }
+  },
+  "referred-by": {
+    "placeholder": "referred by",
+    "email": "email"
+  },
+  "sign-up": {
+    "page-title": "Sign In",
+    "card": {
+      "title": "create your account",
+      "fullname": {
+        "placeholder": "full name",
+        "error": {
+          "required": "required",
+          "format": "only letters",
+          "length": "more than 3 characters"
+        }
+      },
+      "email": {
+        "placeholder": "email",
+        "error": {
+          "required": "required",
+          "format": "only email"
+        }
+      },
+      "username": {
+        "placeholder": "user name",
+        "error": {
+          "required": "required",
+          "format": "only alphanumeric",
+          "length": "more than 3 characters"
+        }
+      },
+      "password": {
+        "placeholder": "password",
+        "error": {
+          "required": "required",
+          "format": "use capital letter, lower case and digit"
+        }
+      },
+      "confirmpassword": {
+        "placeholder": "confirm password",
+        "error": {
+          "required": "required",
+          "format": "password not match"
+        }
+      },
+      "terms": {
+        "placeholder": "Accept all terms of use",
+        "error": {
+          "required": "Accept all terms of use"
+        }
+      },
+      "bot-message": "Check you are not a robot",
+      "credentials-error": "the user already exits.",
+      "sign-in-link": "I have a account",
+      "button": "register"
+    }
+  }
+}

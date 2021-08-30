@@ -24,13 +24,13 @@ const TextInput = ({
         onBlur={onBlur}
         className={`w-full border-2 ${
           error ? 'border-red-500' : 'order-gray-200'
-        } b rounded-md py-1 sm:py-2 px-6 sm:px-8 focus:outline-none ${
+        } rounded-md py-1 sm:py-2 px-7 sm:px-8 focus:outline-none ${
           error ? 'focus:border-red-500' : 'focus:border-gray-800'
         } 
-        hover:bg-gray-100 text-gray-700 text-xs sm:text-sm font-normal tracking-wider`}
+        hover:bg-gray-100 text-gray-700 text-sm font-normal tracking-wider`}
       />
       <svg
-        className='absolute w-4 h-4 sm:w-6 sm:h-6 top-[6px] sm:top-2 left-1 text-gray-400'
+        className='absolute w-5 h-5 sm:w-6 sm:h-6 top-[6px] sm:top-2 left-1 text-gray-400'
         xmlns='http://www.w3.org/2000/svg'
         fill='none'
         viewBox='0 0 24 24'

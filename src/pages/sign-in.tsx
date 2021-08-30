@@ -4,10 +4,13 @@ import Wellcome from '@/components/pages/common/wellcome';
 import SignInCard from '@/components/pages/sign-in/signincard';
 import { useSession } from '@/context/session-context';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 
 const SignIn = () => {
   const router = useRouter();
   const { state: sessionState } = useSession();
+
+  const t = useTranslations('sign-in');
 
   useEffect(() => {
     if (sessionState.session) {
@@ -18,7 +21,7 @@ const SignIn = () => {
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row '>
       <Head>
-        <title>Sign In</title>
+        <title>{t('page-title')}</title>
         <meta name='description' content='SignIn page' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
@@ -33,5 +36,13 @@ const SignIn = () => {
 };
 
 SignIn.Layout = 'default';
+
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: require(`../lang/${locale}.json`),
+    },
+  };
+}
 
 export default SignIn;

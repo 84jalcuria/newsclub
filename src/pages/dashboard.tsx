@@ -62,4 +62,12 @@ const Dashboard = () => {
 
 Dashboard.Layout = 'dashboard';
 
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: require(`../lang/${locale}.json`),
+    },
+  };
+}
+
 export default Dashboard;

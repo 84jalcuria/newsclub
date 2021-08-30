@@ -1,4 +1,5 @@
 import Avatar from '@/components/common/avatar';
+import { useTranslations } from 'next-intl';
 
 interface IProps {
   fullname: string;
@@ -7,6 +8,7 @@ interface IProps {
 }
 
 const ReferrredByCard = ({ fullname, email, avatarpath }: IProps) => {
+  const t = useTranslations('referred-by');
   return (
     <div className='w-full border-[1px] border-gray-400 rounded-md p-2 flex justify-start items-center space-x-3'>
       <div className='flex-shrink-0'>
@@ -17,7 +19,7 @@ const ReferrredByCard = ({ fullname, email, avatarpath }: IProps) => {
           {fullname}
         </h1>
         <h1 className='text-gray-400 text-xs font-normal'>
-          <span className='mr-1'>email:</span>
+          <span className='mr-1'>{t('email')}:</span>
           {email}
         </h1>
       </div>

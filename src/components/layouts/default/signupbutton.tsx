@@ -1,9 +1,10 @@
 interface IProps {
   callback: () => void;
   selected: boolean;
+  label: string;
 }
 
-const signupbutton = ({ callback, selected }: IProps) => {
+const signupbutton = ({ callback, selected, label }: IProps) => {
   return (
     <button
       type='button'
@@ -21,7 +22,7 @@ const signupbutton = ({ callback, selected }: IProps) => {
           selected ? 'text-gray-800' : 'text-white'
         }  sm:text-sm  font-semibold tracking-wider capitalize`}
       >
-        sign up
+        {label}
       </h1>
     </button>
   );

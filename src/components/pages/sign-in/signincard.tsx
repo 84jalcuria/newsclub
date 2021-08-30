@@ -7,6 +7,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/pages/common/errormessage';
 import { useSession, SignIn } from '@/context/session-context';
+import { useTranslations } from 'next-intl';
 
 type DataForm = {
   username: string;
@@ -14,6 +15,7 @@ type DataForm = {
 };
 
 const SignInCard = () => {
+  const t = useTranslations('sign-in.card');
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
   const {
@@ -24,7 +26,7 @@ const SignInCard = () => {
 
   const { state: sessionState, dispatch: sessionDispatch } = useSession();
 
-  const BOTMESSAGE = 'check you are not a robot?';
+  const BOTMESSAGE = t('bot-message');
 
   const onSignIn = async (data) => {
     const { username, password } = data;
@@ -36,11 +38,11 @@ const SignInCard = () => {
   };
 
   const username = register('username', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('username.error') },
   });
 
   const password = register('password', {
-    required: { value: true, message: 'required' },
+    required: { value: true, message: t('password.error') },
   });
 
   function captchaOnChange(token) {
@@ -59,13 +61,13 @@ const SignInCard = () => {
         action=''
         className='flex flex-col space-y-7'
       >
-        <h1 className='capitalize text-gray-800 text-base md:text-xl font-medium self-center mb-2'>
-          Login and go on
+        <h1 className='capitalize text-gray-800 text-base sm:text-lg font-medium self-center mb-2'>
+          {t('title')}
         </h1>
         <div className='w-full relative z-30'>
           <UserNameInput
             error={!!errors?.username}
-            placeholder={'Username'}
+            placeholder={t('username.placeholder')}
             inputRef={username.ref}
             onChange={username.onChange}
             onBlur={username.onBlur}
@@ -81,7 +83,7 @@ const SignInCard = () => {
         <div className='w-full relative z-30'>
           <PasswordInput
             error={!!errors?.password}
-            placeholder={'Password'}
+            placeholder={t('password.placeholder')}
             inputRef={password.ref}
             onChange={password.onChange}
             onBlur={password.onBlur}
@@ -103,18 +105,23 @@ const SignInCard = () => {
           {botMessage && <ErrorMessage message={botMessage} />}
         </div>
         {sessionState.error && (
-          <ErrorMessage message={sessionState.error.message} size='lg' />
+          <ErrorMessage
+            message={
+              sessionState.error.status === 404 ? t('credentials-error') : ''
+            }
+            size='lg'
+          />
         )}
 
         <Link href='/sign-up'>
           <a
             href='#'
-            className='self-start text-gray-800 text-sm sm:text-base font-bold tracking-normal  underline ml-1'
+            className='self-start text-gray-800 text-xs sm:text-sm font-bold tracking-normal  underline ml-1'
           >
-            I have not a account
+            {t('sign-up-link')}
           </a>
         </Link>
-        <SignInButton label={'login'} submitting={sessionState.loading} />
+        <SignInButton label={t('button')} submitting={sessionState.loading} />
       </form>
     </div>
   );

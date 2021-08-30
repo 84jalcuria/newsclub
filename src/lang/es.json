@@ -1,0 +1,91 @@
+{
+  "rights": {
+    "placeholder": "todos los derechos reservados."
+  },
+  "nav": {
+    "about": "acerca",
+    "contact": "contacto",
+    "sign-in": "inciar",
+    "sign-up": "registrarse"
+  },
+  "wellcome-message": {
+    "wellcome": "Bienvenido a",
+    "description": "acorta y comparte tus enlaces."
+  },
+  "sign-in": {
+    "page-title": "Registrarse",
+
+    "card": {
+      "title": "inicie sesion y continue",
+      "username": {
+        "placeholder": "nombre de usuario",
+        "error": "requirido"
+      },
+      "password": {
+        "placeholder": "contraseña",
+        "error": "requerido"
+      },
+      "bot-message": "Chequea que no eres un robot.",
+      "credentials-error": "las credenciales son incorrectas.",
+      "sign-up-link": "No tengo una cuenta.",
+      "button": "Iniciar Session"
+    }
+  },
+  "referred-by": {
+    "placeholder": "referido por",
+    "email": "correo"
+  },
+  "sign-up": {
+    "page-title": "Registrarse",
+    "card": {
+      "title": "cree su cuenta",
+      "fullname": {
+        "placeholder": "nombre completo",
+        "error": {
+          "required": "requerido",
+          "format": "solo letras",
+          "length": "mas de 3 caracteres"
+        }
+      },
+      "email": {
+        "placeholder": "correo electronico",
+        "error": {
+          "required": "requerido",
+          "format": "solo correo"
+        }
+      },
+      "username": {
+        "placeholder": "nombre de usuario",
+        "error": {
+          "required": "requerido",
+          "format": "solo alfanumerico",
+          "length": "mas de 3 caracteres"
+        }
+      },
+      "password": {
+        "placeholder": "contraseña",
+        "error": {
+          "required": "requerido",
+          "format": "use letra mayuscula, minuscula y digito"
+        }
+      },
+      "confirmpassword": {
+        "placeholder": "confirme contraseña",
+        "error": {
+          "required": "requerido",
+          "format": "contraseña no coincide"
+        }
+      },
+      "terms": {
+        "placeholder": "Acepto todos los terminos de uso",
+        "error": {
+          "required": "Acepte todos los terminos de uso"
+        }
+      },
+      "bot-message": "Chequea que no eres un robot.",
+      "credentials-error": "el usuario ya existe.",
+      "sign-in-link": "Tengo una cuenta.",
+      "button": "registrarse"
+    }
+  }
+}

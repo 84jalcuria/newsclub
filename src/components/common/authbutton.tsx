@@ -19,7 +19,7 @@ const AuthButton = ({ label, submitting }: IProps) => {
       {submitting ? (
         <LoadButton />
       ) : (
-        <h1 className='text-white text-sm sm:text-base md:text-base tracking-wider capitalize'>
+        <h1 className='text-white text-sm sm:text-base tracking-wider capitalize'>
           {label}
         </h1>
       )}

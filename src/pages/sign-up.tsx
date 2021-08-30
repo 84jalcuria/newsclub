@@ -5,8 +5,10 @@ import SignUpCard from '@/components/pages/sign-up/signupcard';
 import ReferredByCard from '@/components/pages/sign-up/referredbycarddesktop';
 import { useSession } from '@/context/session-context';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 
 const SignUp = () => {
+  const t = useTranslations('sign-up');
   const router = useRouter();
   const { state: sessionState } = useSession();
 
@@ -17,7 +19,7 @@ const SignUp = () => {
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row sm:py-16'>
       <Head>
-        <title>Sign Up</title>
+        <title>{t('page-title')}</title>
         <meta name='description' content='SignUp page' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
@@ -39,5 +41,13 @@ const SignUp = () => {
 };
 
 SignUp.Layout = 'default';
+
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: require(`../lang/${locale}.json`),
+    },
+  };
+}
 
 export default SignUp;

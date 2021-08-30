@@ -28,12 +28,12 @@ const PasswordInput = ({
         onBlur={onBlur}
         className={`w-full border-2 ${
           error ? 'border-red-500' : 'border-gray-200'
-        }  rounded-md py-1 sm:py-2 px-7 sm:px-9 focus:outline-none ${
+        }  rounded-md py-1 sm:py-2 px-7 focus:outline-none ${
           error ? 'focus:border-red-500' : 'focus:border-gray-700'
         } 
-        hover:bg-gray-100 text-gray-700 text-sm sm:text-base font-normal tracking-wider`}
+        hover:bg-gray-100 text-gray-700 text-sm font-normal tracking-wider`}
       />
-      <div className='absolute  w-5 h-5 sm:w-6 sm:h-6 top-[6px] sm:top-[10px] left-1'>
+      <div className='absolute  w-5 h-5 top-[6px] sm:top-[10px] left-1'>
         <Image
           src={password}
           alt='password icon'
@@ -44,7 +44,7 @@ const PasswordInput = ({
       {showPassword ? (
         <button
           type='button'
-          className='absolute w-5 h-5 sm:w-6 sm:h-6 top-[6px] sm:top-[10px] right-2 focus:outline-none cursor-pointer'
+          className='absolute w-5 h-5 top-[6px] sm:top-[10px] right-2 focus:outline-none cursor-pointer'
           onClick={() => setShowPassword(!showPassword)}
         >
           <Image
@@ -57,7 +57,7 @@ const PasswordInput = ({
       ) : (
         <button
           type='button'
-          className='absolute w-5 h-5 sm:w-6 sm:h-6 top-[6px] sm:top-[10px] right-2 focus:outline-none cursor-pointer'
+          className='absolute w-5 h-5 top-[6px] sm:top-[10px] right-2 focus:outline-none cursor-pointer'
           onClick={() => setShowPassword(!showPassword)}
         >
           <Image
