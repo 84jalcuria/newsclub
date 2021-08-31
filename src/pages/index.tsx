@@ -1,18 +1,16 @@
 import { useEffect } from 'react';
-//import type { NextPage } from 'next';
 import Head from 'next/head';
 import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
 import { useLang } from '@/context/lang-context';
 
 const Home = () => {
-  const { state: stateLang } = useLang();
+  const { lang } = useLang();
   const router = useRouter();
 
   useEffect(() => {
-    if (stateLang.lang)
-      router.replace('/sign-in', '/sign-in', { locale: stateLang.lang });
-  }, [stateLang]);
+    if (lang) router.replace('/sign-in', '/sign-in', { locale: lang });
+  }, [lang]);
 
   return (
     <div className='w-screen h-screen flex justify-center items-center'>

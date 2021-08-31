@@ -10,18 +10,18 @@ interface IProps {
 }
 
 const SideBar = ({ onClose }: IProps) => {
-  const { state, dispatch } = useLang();
+  const { lang, setLangStorage } = useLang();
   const t = useTranslations('nav');
   const router = useRouter();
   const isSelected = (pathname: string) => pathname === router.asPath;
 
   const changeLang = () => {
     const routepathname = router.asPath;
-    if (state.lang === 'es') {
-      dispatch({ type: 'set-en' });
+    if (lang === 'es') {
+      setLangStorage('en');
       router.push(routepathname, routepathname, { locale: 'en' });
     } else {
-      dispatch({ type: 'set-es' });
+      setLangStorage('es');
       router.push(routepathname, routepathname, { locale: 'es' });
     }
     onClose();
@@ -47,10 +47,7 @@ const SideBar = ({ onClose }: IProps) => {
             />
           </svg>
         </button>
-        <Lang
-          onCallback={changeLang}
-          label={state.lang === 'es' ? 'en' : 'es'}
-        />
+        <Lang onCallback={changeLang} label={lang === 'es' ? 'en' : 'es'} />
       </div>
       {/*-----------------------Border-----------------------------*/}
       <div className='w-full border-b-[1px] border-gray-400' />

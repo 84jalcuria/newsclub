@@ -10,7 +10,7 @@ import Lang from '@/components/layouts/common/langdesktop';
 import { useLang } from '@/context/lang-context';
 
 const Header = () => {
-  const { state, dispatch } = useLang();
+  const { lang, setLangStorage } = useLang();
   const t = useTranslations('nav');
   const [showSideBar, setShowSideBar] = useState(false);
   const router = useRouter();
@@ -18,11 +18,11 @@ const Header = () => {
 
   const changeLang = () => {
     const routepathname = router.asPath;
-    if (state.lang === 'es') {
-      dispatch({ type: 'set-en' });
+    if (lang === 'es') {
+      setLangStorage('en');
       router.push(routepathname, routepathname, { locale: 'en' });
     } else {
-      dispatch({ type: 'set-es' });
+      setLangStorage('es');
       router.push(routepathname, routepathname, { locale: 'es' });
     }
   };
@@ -72,10 +72,7 @@ const Header = () => {
             callback={() => router.push('/sign-up')}
             selected={isSelected('/sign-up')}
           />
-          <Lang
-            onCallback={changeLang}
-            label={state.lang === 'es' ? 'en' : 'es'}
-          />
+          <Lang onCallback={changeLang} label={lang === 'es' ? 'en' : 'es'} />
         </nav>
       </div>
     </header>
