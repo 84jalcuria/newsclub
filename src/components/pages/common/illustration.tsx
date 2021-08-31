@@ -1,7 +1,7 @@
 const illustration = () => {
   return (
     <svg
-      className='w-full sm:w-64 lg:w-80 h-64'
+      className='w-full sm:w-64 lg:w-80 h-64 text-transparent'
       id='a5349118-8809-40c5-ab34-fa23ee5ede74'
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
@@ -29,7 +29,7 @@ const illustration = () => {
         opacity='0.1'
       />
       <ellipse cx='632' cy='623.71023' rx='129' ry='44' fill='#3f3d56' />
-      <rect x='76' y='301.71023' width='410' height='234' fill='#f1f1f1' />
+      <rect x='76' y='301.71023' width='410' height='234' fill='none' />
       <ellipse cx='677.5' cy='40.71023' rx='39.5' ry='37' fill='#2f2e41' />
       <path
         d='M782,370.85511l-10,14s-48,10-30,25,44-14,44-14l14-18Z'

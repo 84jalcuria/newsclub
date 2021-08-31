@@ -24,7 +24,19 @@ const SignIn = () => {
         <meta name='description' content='SignIn page' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className=' sm:flex-1 flex justify-center items-center'>
+      <div className=' relative sm:flex-1 flex justify-center items-center'>
+        <div
+          className='absolute top-10 sm:top-20 -left-1 bg-green-300 w-52 h-52 sm:w-64 sm:h-64
+           rounded-full mix-blend-multiply filter  blur-2xl opacity-50 animate-blob'
+        ></div>
+        <div
+          className='absolute top-10 sm:top-20 -right-1 bg-purple-400 w-52 h-52 sm:w-64 sm:h-64 sm:right-10
+          rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-2000'
+        ></div>
+        <div
+          className='absolute top-28 sm:top-44 left-12 bg-green-300 w-44 h-44 sm:w-64 sm:h-64 sm:left-6
+          rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-4000'
+        ></div>
         <Wellcome />
       </div>
       <div className=' flex-grow sm:flex-1 flex justify-end items-center'>

@@ -24,7 +24,7 @@ const TextMobile = () => {
           NewsClub
         </span>
       </h1>
-      <span className='text-gray-400 text-sm sm:text-base capitalize '>
+      <span className='text-gray-500 text-sm sm:text-base capitalize '>
         {t('description')}
       </span>
     </div>
@@ -42,7 +42,7 @@ const TextDesktop = () => {
           NewsClub
         </span>
       </h1>
-      <span className='text-gray-400 text-xs sm:text-sm md:text-base capitalize'>
+      <span className='text-gray-500 text-xs sm:text-sm md:text-base capitalize'>
         {t('description')}
       </span>
     </div>
