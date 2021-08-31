@@ -29,12 +29,12 @@ const sessionReducer = (state: State, action: Action) => {
     case 'loading':
       return { error: null, loading: true, session: null };
     case 'success':
-      window.localStorage.setItem('session', JSON.stringify(action.session));
+      window.localStorage.setItem('newsclub.session', JSON.stringify(action.session));
       return { error: null, loading: false, session: action.session };
     case 'error':
       return { loading: false, error: action.error, session: null };
     case 'sign-out':
-      window.localStorage.removeItem('session');
+      window.localStorage.removeItem('newsclub.session');
       return { loading: false, error: null, session: null };
     default:
       throw new Error('Unhabled Action');
@@ -49,7 +49,7 @@ const SessionProvider = ({ children }: SessionProviderProps) => {
   });
 
   React.useEffect(() => {
-    const session = window.localStorage.getItem('session');
+    const session = window.localStorage.getItem('newsclub.session');
     if (session) dispatch({ type: 'success', session: JSON.parse(session) });
   }, []);
 

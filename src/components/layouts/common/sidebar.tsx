@@ -2,40 +2,58 @@ import Tittle from '@/components/common/title';
 import SideBarItem from '@/components/layouts/common/sidebaritem';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
+import Lang from '@/components/layouts/common/lang';
+import { useLang } from '@/context/lang-context';
 
 interface IProps {
   onClose: () => void;
 }
 
 const SideBar = ({ onClose }: IProps) => {
+  const { state, dispatch } = useLang();
   const t = useTranslations('nav');
   const router = useRouter();
   const isSelected = (pathname: string) => pathname === router.asPath;
+
+  const changeLang = () => {
+    const routepathname = router.asPath;
+    if (state.lang === 'es') {
+      dispatch({ type: 'set-en' });
+      router.push(routepathname, routepathname, { locale: 'en' });
+    } else {
+      dispatch({ type: 'set-es' });
+      router.push(routepathname, routepathname, { locale: 'es' });
+    }
+    onClose();
+  };
+
   return (
     <div className='w-full h-full bg-gray-100 flex flex-col justify-between items-center'>
       {/*-----------------Close button-------------------------*/}
-      <button
-        type='button'
-        onClick={onClose}
-        className='focus:outline-none self-start ml-4 mt-2'
-      >
-        <svg
-          className='h-7 w-7 text-gray-800'
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth={2}
-            d='M9 5l7 7-7 7'
-          />
-        </svg>
-      </button>
+      <div className='w-full flex justify-between items-center py-3 px-3'>
+        <button type='button' onClick={onClose} className='focus:outline-none'>
+          <svg
+            className='h-7 w-7 text-gray-800'
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M9 5l7 7-7 7'
+            />
+          </svg>
+        </button>
+        <Lang
+          onCallback={changeLang}
+          label={state.lang === 'es' ? 'en' : 'es'}
+        />
+      </div>
       {/*-----------------------Border-----------------------------*/}
-      <div className='w-full border-b-[1px] border-gray-400 mt-2' />
+      <div className='w-full border-b-[1px] border-gray-400' />
       {/*-------------------------Navigation SideBar------------------------------*/}
       <div className='flex-grow w-full flex flex-col justify-start items-start '>
         <SideBarItem

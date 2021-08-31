@@ -9,7 +9,6 @@ import { useTranslations } from 'next-intl';
 const SignIn = () => {
   const router = useRouter();
   const { state: sessionState } = useSession();
-
   const t = useTranslations('sign-in');
 
   useEffect(() => {

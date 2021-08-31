@@ -6,12 +6,26 @@ import ToggleSideBar from '@/components/layouts/default/togglesidebarmenu';
 import SideBar from '@/components/layouts/common/sidebar';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
+import Lang from '@/components/layouts/common/langdesktop';
+import { useLang } from '@/context/lang-context';
 
 const Header = () => {
+  const { state, dispatch } = useLang();
   const t = useTranslations('nav');
   const [showSideBar, setShowSideBar] = useState(false);
   const router = useRouter();
   const isSelected = (pathname: string) => pathname === router.asPath;
+
+  const changeLang = () => {
+    const routepathname = router.asPath;
+    if (state.lang === 'es') {
+      dispatch({ type: 'set-en' });
+      router.push(routepathname, routepathname, { locale: 'en' });
+    } else {
+      dispatch({ type: 'set-es' });
+      router.push(routepathname, routepathname, { locale: 'es' });
+    }
+  };
   return (
     <header className='w-full mt-2 h-14 sm:h-16 flex justify-between items-center space-x-14 '>
       <div className='flex-shrink-0'>
@@ -57,6 +71,10 @@ const Header = () => {
             label={t('sign-up')}
             callback={() => router.push('/sign-up')}
             selected={isSelected('/sign-up')}
+          />
+          <Lang
+            onCallback={changeLang}
+            label={state.lang === 'es' ? 'en' : 'es'}
           />
         </nav>
       </div>

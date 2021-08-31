@@ -25,7 +25,7 @@
         "error": "required"
       },
       "bot-message": "Check you are not a robot",
-      "credentials-error": "the credentials arer wrong.",
+      "credentials-error": "the credentials are wrong.",
       "sign-up-link": "I have not a account",
       "button": "login"
     }

@@ -13,7 +13,7 @@ const signupbutton = ({ callback, selected, label }: IProps) => {
       className={`focus:outline-none bg-gray-800 p-2 rounded-md 
        disabled:ring-2 disabled:ring-gray-800  ${
          selected
-           ? 'bg-transparent'
+           ? 'bg-transparent shadow-2xl'
            : 'transform hover:scale-105 duration-200 ease-linear hover:bg-gray-900 active:bg-gray-900'
        }`}
     >

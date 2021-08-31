@@ -3,17 +3,16 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
-import { useSession } from '@/context/session-context';
+import { useLang } from '@/context/lang-context';
 
 const Home = () => {
-  const { state: sessionState } = useSession();
+  const { state: stateLang } = useLang();
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
-      router.replace('/sign-in');
-    }, 3000);
-  }, [sessionState.session]);
+    if (stateLang.lang)
+      router.replace('/sign-in', '/sign-in', { locale: stateLang.lang });
+  }, [stateLang]);
 
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
