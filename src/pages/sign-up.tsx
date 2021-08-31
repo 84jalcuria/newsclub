@@ -26,11 +26,11 @@ const SignUp = () => {
 
       <div className='relative sm:flex-1 flex flex-col justify-center items-center'>
         <div
-          className='absolute top-10 sm:top-20 -left-1 bg-green-300 w-52 h-52 sm:w-64 sm:h-64
+          className='absolute top-10 sm:top-20 -left-1 bg-green-300 w-48 h-48 sm:w-64 sm:h-64
            rounded-full mix-blend-multiply filter  blur-2xl opacity-50 animate-blob'
         ></div>
         <div
-          className='absolute top-10 sm:top-20 -right-1 bg-purple-400 w-52 h-52 sm:w-64 sm:h-64 sm:right-10
+          className='absolute top-10 sm:top-20 right-12 bg-purple-400 w-40 h-40 sm:w-64 sm:h-64 sm:right-10
           rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-blob animation-delay-2000'
         ></div>
         <div
