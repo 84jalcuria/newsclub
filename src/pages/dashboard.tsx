@@ -21,6 +21,10 @@ const Dashboard = () => {
       {/*--------------------Content------------------------*/}
       <div className='flex flex-col justify-center items-center space-y-8'>
         {/*-----------------------SignOut Button----------------------------*/}
+        <img
+          src='https://media.istockphoto.com/photos/chain-link-icon-on-abstract-blue-background-hyperlink-chain-symbol-picture-id1279248902?s=612x612'
+          alt='image test'
+        />
         <h1 className='mb-5 text-gray-800 text-xl sm:text-2xl font-bold capitalize'>
           dashboard
         </h1>
