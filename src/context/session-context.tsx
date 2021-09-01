@@ -12,12 +12,13 @@ type Session = {
 type Error = { status: number; message: string } | null;
 
 type Action =
+  | { type: 'init' }
   | { type: 'loading' }
   | { type: 'success'; session: Session }
   | { type: 'error'; error: Error }
   | { type: 'sign-out' };
 type Dispatch = (action: Action) => void;
-type State = { loading: boolean; error: Error; session: Session };
+type State = { loading: boolean; error: Error; session: Session } | null;
 type SessionProviderProps = { children: React.ReactNode };
 
 const SessionContext = React.createContext<
@@ -29,28 +30,33 @@ const sessionReducer = (state: State, action: Action) => {
     case 'loading':
       return { error: null, loading: true, session: null };
     case 'success':
-      window.localStorage.setItem('newsclub.session', JSON.stringify(action.session));
+      window.localStorage.setItem(
+        'newsclub.session',
+        JSON.stringify(action.session)
+      );
       return { error: null, loading: false, session: action.session };
     case 'error':
       return { loading: false, error: action.error, session: null };
     case 'sign-out':
       window.localStorage.removeItem('newsclub.session');
       return { loading: false, error: null, session: null };
+    case 'init':
+      return { loading: false, session: null, error: null };
     default:
       throw new Error('Unhabled Action');
   }
 };
 
 const SessionProvider = ({ children }: SessionProviderProps) => {
-  const [state, dispatch] = React.useReducer(sessionReducer, {
-    loading: false,
-    session: null,
-    error: null,
-  });
+  const [state, dispatch] = React.useReducer(sessionReducer, null);
 
   React.useEffect(() => {
     const session = window.localStorage.getItem('newsclub.session');
-    if (session) dispatch({ type: 'success', session: JSON.parse(session) });
+    if (session) {
+      dispatch({ type: 'success', session: JSON.parse(session) });
+    } else {
+      dispatch({ type: 'init' });
+    }
   }, []);
 
   const value = { state, dispatch };
@@ -157,3 +163,12 @@ const SignIn = async (
 };
 
 export { SessionProvider, useSession, SignUp, SignOut, SignIn };
+
+/*
+{
+    loading: false,
+    session: null,
+    error: null,
+  }
+
+*/

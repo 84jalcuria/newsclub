@@ -13,8 +13,8 @@ const SignUp = () => {
   const { state: sessionState } = useSession();
 
   useEffect(() => {
-    if (sessionState.session) router.replace('/dashboard');
-  }, [sessionState.session]);
+    if (sessionState?.session) router.replace('/dashboard');
+  }, [sessionState]);
 
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row sm:py-16'>

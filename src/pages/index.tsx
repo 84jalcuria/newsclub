@@ -3,14 +3,22 @@ import Head from 'next/head';
 import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
 import { useLang } from '@/context/lang-context';
+import { useSession } from '@/context/session-context';
 
 const Home = () => {
+  const { state: sessionState } = useSession();
   const { lang } = useLang();
   const router = useRouter();
 
   useEffect(() => {
-    if (lang) router.replace('/sign-in', '/sign-in', { locale: lang });
-  }, [lang]);
+    if (lang && sessionState) {
+      if (sessionState.session) {
+        router.replace('/dashboard', '/dashboard', { locale: lang });
+      } else {
+        router.replace('/sign-in', '/sign-in', { locale: lang });
+      }
+    }
+  }, [lang, sessionState]);
 
   return (
     <div className='w-screen h-screen flex justify-center items-center'>

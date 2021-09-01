@@ -12,10 +12,10 @@ const SignIn = () => {
   const t = useTranslations('sign-in');
 
   useEffect(() => {
-    if (sessionState.session) {
+    if (sessionState?.session) {
       router.replace('/dashboard');
     }
-  }, [sessionState.session]);
+  }, [sessionState]);
 
   return (
     <div className='w-full flex-grow flex flex-col space-y-5 sm:flex-row '>

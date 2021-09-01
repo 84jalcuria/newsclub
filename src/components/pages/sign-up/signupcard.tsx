@@ -244,7 +244,7 @@ const SignUpCard = () => {
           )}
         </div>
         {/*--------------------------------------------*/}
-        {sessionState.error && (
+        {sessionState?.error && (
           <ErrorMessage
             message={
               sessionState.error.status === 404 ||
@@ -264,7 +264,7 @@ const SignUpCard = () => {
             {t('sign-in-link')}
           </a>
         </Link>
-        <SignUpButton label={t('button')} submitting={sessionState.loading} />
+        <SignUpButton label={t('button')} submitting={sessionState?.loading} />
       </form>
     </div>
   );

@@ -8,8 +8,8 @@ const Dashboard = () => {
   const { state: sessionState, dispatch: sessionDispatch } = useSession();
 
   useEffect(() => {
-    if (!sessionState.session) router.replace('/sign-in');
-  }, [sessionState.session]);
+    if (!sessionState?.session) router.replace('/sign-in');
+  }, [sessionState]);
 
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
@@ -39,19 +39,19 @@ const Dashboard = () => {
           <h1 className='text-xs sm:textsm text-gray-400 font-light'>
             name:
             <span className='ml-1 text-gray-700 text-sm sm:text-base font-medium '>
-              {sessionState.session?.fullName}
+              {sessionState?.session?.fullName}
             </span>
           </h1>
           <h1 className='text-xs sm:textsm text-gray-400 font-light'>
             username:
             <span className='ml-1 text-gray-700 text-sm sm:text-base font-medium '>
-              {sessionState.session?.userName}
+              {sessionState?.session?.userName}
             </span>
           </h1>
           <h1 className='text-xs sm:textsm text-gray-400 font-light'>
             email:
             <span className='ml-1 text-gray-700 text-sm sm:text-base font-medium '>
-              {sessionState.session?.email}
+              {sessionState?.session?.email}
             </span>
           </h1>
         </div>

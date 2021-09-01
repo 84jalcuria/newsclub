@@ -104,7 +104,7 @@ const SignInCard = () => {
           />
           {botMessage && <ErrorMessage message={botMessage} />}
         </div>
-        {sessionState.error && (
+        {sessionState?.error && (
           <ErrorMessage
             message={
               sessionState.error.status === 404 ? t('credentials-error') : ''
@@ -121,7 +121,7 @@ const SignInCard = () => {
             {t('sign-up-link')}
           </a>
         </Link>
-        <SignInButton label={t('button')} submitting={sessionState.loading} />
+        <SignInButton label={t('button')} submitting={sessionState?.loading} />
       </form>
     </div>
   );
