@@ -2,18 +2,75 @@
   "rights": {
     "placeholder": "todos los derechos reservados."
   },
+  "lang": {
+    "label": "leng"
+  },
   "nav": {
-    "about": "acerca",
-    "contact": "contacto",
-    "sign-in": "inciar",
-    "sign-up": "registrarse"
+    "about": "acerca de",
+    "contact": "contactos",
+    "sign-in": "iniciar",
+    "sign-up": "registrarse",
+    "shortener": "acortador",
+    "overview": "panorama",
+    "button-signout": "cerrar sesion"
   },
   "wellcome-message": {
     "wellcome": "Bienvenido a",
     "description": "acorta y comparte tus enlaces."
   },
+  "dashboard-overview": {
+    "page-title": "Panorama",
+    "title": "Panorama"
+  },
+  "dashboard-shortener": {
+    "page-title": "Acortador",
+    "title": "acortador",
+    "card": {
+      "url": {
+        "placeholder": "url",
+        "error": {
+          "format": "solo url",
+          "required": "requerido"
+        }
+      },
+      "alias": {
+        "placeholder": "alias",
+        "label": "opcional",
+        "error": {
+          "format": "solo letras"
+        }
+      },
+      "quote": {
+        "placeholder": "monetiza la url"
+      },
+      "button": {
+        "placeholder": "acortador",
+        "loading-metadata": "cargando metadata"
+      },
+      "metadata": {
+        "title": "titulo",
+        "description": "descripcion"
+      },
+      "toast": {
+        "title": "acortador de url",
+        "message-success": "url acortada satisfactoriamente",
+        "message-error": "url acortada con error"
+      }
+    }
+  },
+
+  "contact": {
+    "page-title": "Contactos",
+    "title": "contactos"
+  },
+
+  "about": {
+    "page-title": "Acerca",
+    "title": "acerca de"
+  },
+
   "sign-in": {
-    "page-title": "Registrarse",
+    "page-title": "Iniciar Sesion",
 
     "card": {
       "title": "inicie sesion y continue",

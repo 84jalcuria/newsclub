@@ -2,16 +2,74 @@
   "rights": {
     "placeholder": "all rigths reserved."
   },
+  "lang": {
+    "label": "lang"
+  },
+
   "nav": {
     "about": "about",
     "contact": "contact",
     "sign-in": "login",
-    "sign-up": "sign up"
+    "sign-up": "sign up",
+    "shortener": "shortener",
+    "overview": "overview",
+    "button-signout": "close session"
   },
   "wellcome-message": {
     "wellcome": "Wellcome to",
     "description": "shorter and share your links"
   },
+  "dashboard-overview": {
+    "page-title": "Overview",
+    "title": "overview"
+  },
+  "dashboard-shortener": {
+    "page-title": "Shortener",
+    "title": "shortener",
+    "card": {
+      "url": {
+        "placeholder": "url",
+        "error": {
+          "format": "only urls",
+          "required": "required"
+        }
+      },
+      "alias": {
+        "placeholder": "alias",
+        "label": "optional",
+        "error": {
+          "format": "only letters"
+        }
+      },
+      "quote": {
+        "placeholder": "quote the url"
+      },
+      "button": {
+        "placeholder": "shorter",
+        "loading-metadata": "loading metadata"
+      },
+      "metadata": {
+        "title": "title",
+        "description": "description"
+      },
+      "toast": {
+        "title": "url shortener",
+        "message-success": "url shortened successfully ",
+        "message-error": "url shortened error"
+      }
+    }
+  },
+
+  "contact": {
+    "page-title": "Contact",
+    "title": "contact"
+  },
+
+  "about": {
+    "page-title": "About",
+    "title": "about"
+  },
+
   "sign-in": {
     "page-title": "Sign In",
     "card": {

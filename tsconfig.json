@@ -19,7 +19,10 @@
       "@/layouts/*": ["layouts/*"],
       "@/assets/*": ["assets/*"],
       "@/context/*": ["context/*"],
-      "@/lang/*": ["lang/*"]
+      "@/lang/*": ["lang/*"],
+      "@/pages/*": ["pages/*"],
+      "@/utils/*": ["utils/*"],
+      "@/api/*": ["api/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -6,11 +6,11 @@ interface IProps {
 const Avatar = ({ path, size }: IProps) => {
   return (
     <div
-      className='relative rounded-full overflow-hidden'
+      className='relative rounded-full overflow-hidden bg-gray-400/80 shadow-lg'
       style={{ height: size, width: size }}
     >
       <svg
-        className='absolute inset-0 text-gray-400'
+        className='absolute inset-0 text-gray-100 transform scale-75'
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 20 20'
         fill='currentColor'

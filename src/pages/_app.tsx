@@ -1,12 +1,13 @@
 import '../styles/tailwind.css';
 //import type { AppProps } from 'next/app';
-import Default from '@/layouts/default';
+import Dashboard from '@/layouts/dashboard/dashboard';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import { SessionProvider } from '@/context/session-context';
-import { LangProvider } from '@/context/lang-context';
+import { SessionProvider } from 'utils/providers/sessionContextProvider';
+import { LangProvider } from 'utils/providers/langContextProvider';
 import { NextIntlProvider } from 'next-intl';
+import { AnimatePresence } from 'framer-motion';
 
 NProgress.configure({ showSpinner: false });
 
@@ -20,20 +21,19 @@ Router.events.on('routeChangeError', () => {
   NProgress.done();
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   const Layout =
-    Component.Layout === 'none'
-      ? ({ children }) => <>{children}</>
-      : Component.Layout === 'default'
-      ? Default
-      : ({ children }) => <>{children}</>;
+    Component.Layout === 'none' ? ({ children }) => <>{children}</> : Dashboard;
+
   return (
     <>
       <NextIntlProvider messages={pageProps.messages}>
         <LangProvider>
           <SessionProvider>
             <Layout>
-              <Component {...pageProps} />
+              <AnimatePresence exitBeforeEnter>
+                <Component {...pageProps} key={router.route} />
+              </AnimatePresence>
             </Layout>
           </SessionProvider>
         </LangProvider>

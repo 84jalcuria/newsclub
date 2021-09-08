@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Logo from '@/components/common/logo';
 import { useRouter } from 'next/router';
-import { useLang } from '@/context/lang-context';
-import { useSession } from '@/context/session-context';
+import { useLang } from 'utils/providers/langContextProvider';
+import { useSession } from 'utils/providers/sessionContextProvider';
 
 const Home = () => {
   const { state: sessionState } = useSession();
@@ -13,7 +13,9 @@ const Home = () => {
   useEffect(() => {
     if (lang && sessionState) {
       if (sessionState.session) {
-        router.replace('/dashboard', '/dashboard', { locale: lang });
+        router.replace('/dashboard/overview', '/dashboard/overview', {
+          locale: lang,
+        });
       } else {
         router.replace('/sign-in', '/sign-in', { locale: lang });
       }
