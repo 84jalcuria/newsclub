@@ -30,6 +30,15 @@ const SignIn = async (credentials: SignInCredentials) => {
   return res;
 };
 
-const auth = { SignIn, SignUp };
+const ConfirmEmail = async (id: string) => {
+  const url = baseUrl + '/confirm-email?id=' + id;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers,
+  });
+  return res;
+};
+
+const auth = { SignIn, SignUp, ConfirmEmail };
 
 export default auth;

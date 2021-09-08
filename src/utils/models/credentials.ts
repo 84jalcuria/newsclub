@@ -4,6 +4,7 @@ export type SignUpCredentials = {
   userName: string;
   password: string;
   referralOf: string;
+  emailConfirmed: boolean;
 };
 
 export type SignInCredentials = {

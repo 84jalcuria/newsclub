@@ -84,7 +84,8 @@
       },
       "bot-message": "Chequea que no eres un robot.",
       "credentials-error": "las credenciales son incorrectas.",
-      "sign-up-link": "No tengo una cuenta.",
+      "confirm-email-error": "por favor confirme el correo.",
+      "forget-password": "Ovide la contraseña.",
       "button": "Iniciar Session"
     }
   },
@@ -142,7 +143,8 @@
       "bot-message": "Chequea que no eres un robot.",
       "credentials-error": "el usuario ya existe.",
       "sign-in-link": "Tengo una cuenta.",
-      "button": "registrarse"
+      "button": "registrarse",
+      "confirm-email": "por favor chequee su email para confirmar registro."
     }
   }
 }

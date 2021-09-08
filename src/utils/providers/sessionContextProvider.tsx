@@ -15,7 +15,11 @@ type Action =
   | { type: 'error'; error: Error }
   | { type: 'sign-out' };
 type Dispatch = (action: Action) => void;
-type State = { loading: boolean; error: Error; session: Session | null } | null;
+type State = {
+  loading: boolean;
+  error: Error;
+  session: Session | null;
+} | null;
 type SessionProviderProps = { children: React.ReactNode };
 
 const SessionContext = React.createContext<
@@ -31,14 +35,30 @@ const sessionReducer = (state: State, action: Action) => {
         'newsclub.session',
         JSON.stringify(action.session)
       );
-      return { error: null, loading: false, session: action.session };
+      return {
+        error: null,
+        loading: false,
+        session: action.session,
+      };
     case 'error':
-      return { loading: false, error: action.error, session: null };
+      return {
+        error: action.error,
+        loading: false,
+        session: null,
+      };
     case 'sign-out':
       window.localStorage.removeItem('newsclub.session');
-      return { loading: false, error: null, session: null };
+      return {
+        loading: false,
+        error: null,
+        session: null,
+      };
     case 'init':
-      return { loading: false, session: null, error: null };
+      return {
+        loading: false,
+        session: null,
+        error: null,
+      };
     default:
       throw new Error('Unhabled Action');
   }
@@ -69,7 +89,10 @@ const useSession = () => {
   return context;
 };
 
-const SignUp = async (dispatch: Dispatch, credentials: SignUpCredentials) => {
+const SignUp = async (
+  dispatch: Dispatch,
+  credentials: SignUpCredentials
+): Promise<boolean> => {
   //const url = `${process.env.NEXT_PUBLIC_END_POINT}/sign-up`;
   try {
     dispatch({ type: 'loading' });
@@ -78,10 +101,11 @@ const SignUp = async (dispatch: Dispatch, credentials: SignUpCredentials) => {
     if (status === 200) {
       /*-----------------------SUCCESS---------------------------*/
       const data = await res.json();
-      dispatch({ type: 'success', session: data });
+      dispatch({ type: 'init' });
+      return true;
     } else {
       /*-----------------------ERRORS-------------------------*/
-      if (status === 400 || status === 404 || status === 409) {
+      if (status === 409) {
         dispatch({
           type: 'error',
           error: { status, message: 'username already exits.' },
@@ -93,6 +117,7 @@ const SignUp = async (dispatch: Dispatch, credentials: SignUpCredentials) => {
           error: { status: 500, message: 'internal server error.' },
         });
       }
+      return false;
     }
   } catch (error) {
     window.alert(error.message);
@@ -114,16 +139,15 @@ const SignIn = async (dispatch: Dispatch, credentials: SignInCredentials) => {
       dispatch({ type: 'success', session: data });
     } else {
       /*-----------------------ERRORS-------------------------*/
-      if (status === 400 || status === 404 || status === 409) {
+      if (status === 404) {
         dispatch({
           type: 'error',
           error: { status, message: 'credentials are wrong.' },
         });
-      } else if (status === 500) {
-        window.alert('Internal Server Error.');
+      } else if (status === 307) {
         dispatch({
           type: 'error',
-          error: { status: 500, message: 'internal server error.' },
+          error: { status, message: 'email not verified.' },
         });
       }
     }

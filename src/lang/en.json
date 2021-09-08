@@ -84,7 +84,8 @@
       },
       "bot-message": "Check you are not a robot",
       "credentials-error": "the credentials are wrong.",
-      "sign-up-link": "I have not a account",
+      "confirm-email-error": "please confirm email.",
+      "forget-password": "I forget the password.",
       "button": "login"
     }
   },
@@ -142,7 +143,8 @@
       "bot-message": "Check you are not a robot",
       "credentials-error": "the user already exits.",
       "sign-in-link": "I have a account",
-      "button": "register"
+      "button": "register",
+      "confirm-email": "please check your email to confirm registration."
     }
   }
 }

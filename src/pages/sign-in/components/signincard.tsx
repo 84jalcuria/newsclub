@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import UserNameInput from '@/components/common/usernameinput';
 import PasswordInput from '@/components/common/passwordinput';
@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/common/errormessage';
 import { useSession, SignIn } from 'utils/providers/sessionContextProvider';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
 
 type DataForm = {
   username: string;
@@ -15,9 +16,11 @@ type DataForm = {
 };
 
 const SignInCard = () => {
+  const query = useRouter().query;
   const t = useTranslations('sign-in.card');
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
+  const [showConfirmEmail, setShowConfirmEmail] = useState(false);
   const {
     register,
     handleSubmit,
@@ -25,6 +28,10 @@ const SignInCard = () => {
   } = useForm<DataForm>({ mode: 'onChange' });
 
   const { state: sessionState, dispatch: sessionDispatch } = useSession();
+
+  useEffect(() => {
+    if (query.confirm) setShowConfirmEmail(true);
+  }, [query]);
 
   const BOTMESSAGE = t('bot-message');
 
@@ -62,7 +69,11 @@ const SignInCard = () => {
         className='flex flex-col space-y-7'
       >
         <h1 className='capitalize text-gray-800 text-base font-medium tracking-tight self-center '>
-          {t('title')}
+          {showConfirmEmail ? (
+            <>Su identidad ha sido confirmada</>
+          ) : (
+            <>{t('title')}</>
+          )}
         </h1>
         <div className='w-full relative z-30'>
           <UserNameInput
@@ -107,7 +118,11 @@ const SignInCard = () => {
         {sessionState?.error && (
           <ErrorMessage
             message={
-              sessionState.error.status === 404 ? t('credentials-error') : ''
+              sessionState.error.status === 404
+                ? t('credentials-error')
+                : sessionState.error.status === 307
+                ? t('confirm-email-error')
+                : ''
             }
             size='lg'
           />
@@ -118,7 +133,7 @@ const SignInCard = () => {
             href='#'
             className='self-start text-gray-700 text-xs font-medium tracking-tight  underline ml-1'
           >
-            {t('sign-up-link')}
+            {t('forget-password')}
           </a>
         </Link>
         <SignInButton label={t('button')} submitting={sessionState?.loading} />
