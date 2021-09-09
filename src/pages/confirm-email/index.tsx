@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+//import { useTranslations } from 'next-intl';
 import Auth from '@/api/auth';
 
 const ConfirmEmail = ({ error }) => {
@@ -6,7 +6,7 @@ const ConfirmEmail = ({ error }) => {
   return <div>{error}</div>;
 };
 
-export const getServerSideProps = async ({ locale, query }) => {
+export const getServerSideProps = async ({ query, locale }) => {
   const { id } = query;
   let error: string;
   if (id) {
@@ -24,8 +24,7 @@ export const getServerSideProps = async ({ locale, query }) => {
   } else error = 'there was an error with query params';
   return {
     props: {
-      error,
-      messages: require(`../../lang/${locale}.json`),
+      message: require(`../../lang/${locale}.json`),
     },
   };
 };

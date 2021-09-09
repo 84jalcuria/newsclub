@@ -86,6 +86,7 @@
       "credentials-error": "the credentials are wrong.",
       "confirm-email-error": "please confirm email.",
       "forget-password": "I forget the password.",
+      "confirm-email" : "The email has been confirmed.",
       "button": "login"
     }
   },

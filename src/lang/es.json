@@ -86,6 +86,7 @@
       "credentials-error": "las credenciales son incorrectas.",
       "confirm-email-error": "por favor confirme el correo.",
       "forget-password": "Ovide la contraseña.",
+      "confirm-email": "El correo ha sido confirmado.",
       "button": "Iniciar Session"
     }
   },

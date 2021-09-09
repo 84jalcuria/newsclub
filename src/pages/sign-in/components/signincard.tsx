@@ -69,11 +69,7 @@ const SignInCard = () => {
         className='flex flex-col space-y-7'
       >
         <h1 className='capitalize text-gray-800 text-base font-medium tracking-tight self-center '>
-          {showConfirmEmail ? (
-            <>Su identidad ha sido confirmada</>
-          ) : (
-            <>{t('title')}</>
-          )}
+          {showConfirmEmail ? t('confirm-email') : t('title')}
         </h1>
         <div className='w-full relative z-30'>
           <UserNameInput

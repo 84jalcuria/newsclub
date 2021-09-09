@@ -6,12 +6,14 @@ import { useSession } from '@/utils/providers/sessionContextProvider';
 import ToggleMenu from '@/layouts/dashboard/components/mobile/togglemenu';
 import SideMenu from '@/layouts/dashboard/components/mobile/sidemenu';
 import { AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface IProps {
   children: React.ReactNode;
 }
 
 const Dashboard = ({ children }: IProps) => {
+  const t = useTranslations('rights');
   const { state: sessionState } = useSession();
   const [showSideMenu, setShowSideMenu] = useState(false);
 
@@ -40,7 +42,8 @@ const Dashboard = ({ children }: IProps) => {
         )}
 
         {children}
-        <Footer />
+
+        <Footer footerLabel={t('placeholder')} />
       </div>
     </div>
   );

@@ -27,17 +27,17 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <>
-      <NextIntlProvider messages={pageProps.messages}>
-        <LangProvider>
-          <SessionProvider>
-            <Layout>
-              <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter>
+        <NextIntlProvider messages={pageProps.messages}>
+          <LangProvider>
+            <SessionProvider>
+              <Layout>
                 <Component {...pageProps} key={router.route} />
-              </AnimatePresence>
-            </Layout>
-          </SessionProvider>
-        </LangProvider>
-      </NextIntlProvider>
+              </Layout>
+            </SessionProvider>
+          </LangProvider>
+        </NextIntlProvider>
+      </AnimatePresence>
     </>
   );
 }
