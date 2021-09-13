@@ -12,6 +12,6 @@ const Metadata = async (url: string) => {
   return res;
 };
 
-const url = { Metadata };
+const Url = { Metadata };
 
-export default url;
+export default Url;

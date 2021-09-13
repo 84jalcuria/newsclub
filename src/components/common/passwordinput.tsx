@@ -48,7 +48,7 @@ const PasswordInput = ({
           onClick={() => setShowPassword(!showPassword)}
         >
           <Image
-            src={view}
+            src={notview}
             alt='password icon'
             layout='fill'
             objectFit='cover'
@@ -61,7 +61,7 @@ const PasswordInput = ({
           onClick={() => setShowPassword(!showPassword)}
         >
           <Image
-            src={notview}
+            src={view}
             alt='password icon'
             layout='fill'
             objectFit='cover'

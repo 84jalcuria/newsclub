@@ -5,7 +5,6 @@ import ShortenerButton from '@/pages/dashboard/shortener/components/shortenerbut
 import UrlMetadata from '@/pages/dashboard/shortener/components/urlmetadata';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '@/components/common/errormessage';
-import Auth from '@/api/url';
 import { debounce } from 'debounce';
 import { toast, ToastContainer } from 'react-nextjs-toast';
 import { useTranslations } from 'next-intl';
@@ -17,14 +16,12 @@ interface DataForm {
 }
 
 const ShortenerCard = () => {
+  const [Url, setUrl] = useState('');
   const [loadingMetadata, setLoadingMetadata] = useState(false);
-  const [loadingMetadataError, setLoadingMetadataError] = useState(false);
-  const [metadataTitle, setMetadataTitle] = useState('');
-  const [metadataDescription, setMetadataDescription] = useState('');
-  const [metadataPath, setmetadataPath] = useState('');
   const [shorteningUrl, setShorteningUrl] = useState(false);
-  const [shortedUrl, setShortedUrl] = useState(false);
   const [shorteningUrlError, setShorteningUrlError] = useState(false);
+  const [shortedUrl, setShortedUrl] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -50,9 +47,9 @@ const ShortenerCard = () => {
     /*--------------Reset the State---------------------------*/
     setShorteningUrl(false);
     reset();
-    setmetadataPath('');
-    setMetadataDescription('');
-    setMetadataTitle('');
+    //setmetadataPath('');
+    //setMetadataDescription('');
+    //setMetadataTitle('');
 
     /*----------------Notification---------------------------*/
     toast.notify(t('toast.message-success'), {
@@ -84,35 +81,11 @@ const ShortenerCard = () => {
   const quote = register('quote');
 
   const onChangeUrl = async (e) => {
-    //const url = e.target.value;
     const checked = await trigger('url'); //check url pattern
 
-    setLoadingMetadata(false);
-    setMetadataTitle('');
-    setMetadataDescription('');
-    setmetadataPath('');
-
     if (checked) {
-      debounce(async () => {
-        try {
-          setLoadingMetadata(true);
-          const res = await Auth.Metadata(getValues('url'));
-          if (res.status === 200) {
-            const data = await res.json();
-            setMetadataTitle(data.title);
-            setMetadataDescription(data.description);
-            setmetadataPath(data.banner);
-            setLoadingMetadata(false);
-            return;
-          } else if (res.status === 500) {
-            throw new Error((await res.json()).message);
-          }
-        } catch (error) {
-          setMetadataTitle('');
-          setMetadataDescription('');
-          setmetadataPath('');
-          setLoadingMetadata(false);
-        }
+      debounce(() => {
+        setUrl(getValues('url'));
       }, 1000)();
     }
   };
@@ -191,10 +164,8 @@ const ShortenerCard = () => {
       {/*----------------Url Metadata----------------------------*/}
       <div className='w-full px-5 pt-4 pb-6 bg-green-100/30 rounded-md mt-2'>
         <UrlMetadata
-          path={metadataPath}
-          title={metadataTitle}
-          description={metadataDescription}
-          loading={loadingMetadata}
+          url={Url}
+          loadingCallback={(loading: boolean) => setLoadingMetadata(loading)}
         />
       </div>
       <ToastContainer />

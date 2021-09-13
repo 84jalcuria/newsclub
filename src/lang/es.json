@@ -69,6 +69,11 @@
     "title": "acerca de"
   },
 
+  "terms": {
+    "page-title": "Terminos",
+    "title": "Terminos"
+  },
+
   "sign-in": {
     "page-title": "Iniciar Sesion",
 
@@ -88,6 +93,40 @@
       "forget-password": "Ovide la contraseña.",
       "confirm-email": "El correo ha sido confirmado.",
       "button": "Iniciar Session"
+    },
+    "card-forgot-password": {
+      "title": "envia tu correo para confirmar la cuenta.",
+      "email": {
+        "placeholder": "correo",
+        "error": {
+          "required": "requirido",
+          "format": "solo correo"
+        }
+      },
+      "button": "envia correo",
+      "email-error": "la cuenta no existe.",
+      "confirm-email": "por favor chequea el correo para confirmar la cuenta.",
+      "link-expired": "el enlace del correo expiro, envie su correo nuevamente."
+    },
+    "card-change-password": {
+      "title": "escriba la nueva contraseña.",
+      "password": {
+        "placeholder": "contraseña",
+        "error": {
+          "required": "requerido",
+          "format": "use letra mayuscula, minuscula y digito"
+        }
+      },
+      "confirmpassword": {
+        "placeholder": "confirme contraseña",
+        "error": {
+          "required": "requerido",
+          "format": "la contraseña no coincide"
+        }
+      },
+      "password-changed": "su contraseña ha sido cambiada por favor inicie sesion",
+      "changed-password-error": "algun error cambiando contraseña",
+      "button": "cambiar contraseña"
     }
   },
   "referred-by": {

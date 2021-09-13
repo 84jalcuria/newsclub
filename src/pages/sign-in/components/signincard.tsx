@@ -21,9 +21,11 @@ const SignInCard = () => {
   const [bot, setBot] = useState(true);
   const [botMessage, setBotMessage] = useState('');
   const [showConfirmEmail, setShowConfirmEmail] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors },
   } = useForm<DataForm>({ mode: 'onChange' });
 
@@ -32,6 +34,10 @@ const SignInCard = () => {
   useEffect(() => {
     if (query.confirm) setShowConfirmEmail(true);
   }, [query]);
+
+  useEffect(() => {
+    setFocus('username');
+  }, []);
 
   const BOTMESSAGE = t('bot-message');
 
@@ -71,7 +77,7 @@ const SignInCard = () => {
         <h1 className='capitalize text-gray-800 text-base font-medium tracking-tight self-center '>
           {showConfirmEmail ? t('confirm-email') : t('title')}
         </h1>
-        <div className='w-full relative z-30'>
+        <div className='w-full relative z-0'>
           <UserNameInput
             error={!!errors?.username}
             placeholder={t('username.placeholder')}
@@ -87,7 +93,7 @@ const SignInCard = () => {
             </div>
           )}
         </div>
-        <div className='w-full relative z-30'>
+        <div className='w-full relative z-0'>
           <PasswordInput
             error={!!errors?.password}
             placeholder={t('password.placeholder')}
@@ -124,12 +130,11 @@ const SignInCard = () => {
           />
         )}
 
-        <Link href='/sign-up'>
-          <a
-            href='#'
-            className='self-start text-gray-700 text-xs font-medium tracking-tight  underline ml-1'
-          >
-            {t('forget-password')}
+        <Link href='/sign-in?forgotPassword=true'>
+          <a href='#' className='self-start focus:outline-none'>
+            <h1 className=' text-gray-700 text-xs font-medium tracking-tight  underline ml-1'>
+              {t('forget-password')}
+            </h1>
           </a>
         </Link>
         <SignInButton label={t('button')} submitting={sessionState?.loading} />

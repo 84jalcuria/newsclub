@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Wellcome from '@/components/common/wellcome';
 import SignInCard from '@/pages/sign-in/components/signincard';
+import SendEmailCard from '@/pages/sign-in/components/sendemailcard';
+import ChangePasswordCard from '@/pages/sign-in/components/changepasswordcard';
 import { useSession } from 'utils/providers/sessionContextProvider';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
@@ -9,6 +11,10 @@ import { motion } from 'framer-motion';
 
 const SignIn = () => {
   const router = useRouter();
+  const query = useRouter().query;
+  const [showSendEmail, setShowSendEmail] = useState(false);
+  const [showChangePassword, setShowChangePassword] = useState(false);
+  const [changePasswordId, setChangePasswordId] = useState('');
   const { state: sessionState } = useSession();
   const t = useTranslations('sign-in');
 
@@ -17,6 +23,21 @@ const SignIn = () => {
       router.replace('/dashboard/overview');
     }
   }, [sessionState]);
+
+  useEffect(() => {
+    if (query.forgotPassword) {
+      setShowSendEmail(true);
+    } else {
+      setShowSendEmail(false);
+      if (query.changePassword && query.id) {
+        console.log(query.id);
+        setChangePasswordId(query.id as string);
+        setShowChangePassword(true);
+      } else {
+        setShowChangePassword(false);
+      }
+    }
+  }, [query]);
 
   return (
     <motion.div
@@ -31,7 +52,13 @@ const SignIn = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Wellcome />
-      <SignInCard />
+      {showSendEmail ? (
+        <SendEmailCard />
+      ) : showChangePassword ? (
+        <ChangePasswordCard id={changePasswordId} />
+      ) : (
+        <SignInCard />
+      )}
     </motion.div>
   );
 };

@@ -1,20 +1,41 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
+import UnderConstruccion from '@/components/common/underconstruction';
+import Title from '@/components/common/pagetitle';
+import { motion } from 'framer-motion';
 
 const Terms = () => {
-  const router = useRouter();
+  const t = useTranslations('terms');
   return (
-    <div className=''>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className='h-full  flex flex-col justify-between  items-center p-[25px]'
+    >
       <Head>
-        <title>NewsClub</title>
+        <title>{t('page-title')}</title>
         <meta name='description' content='shortener link' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      Terms
-    </div>
+      <div className='self-end sm:self-start'>
+        <Title label={t('title')} />
+      </div>
+      <div className='w-full flex-grow flex justify-center items-center'>
+        <UnderConstruccion />
+      </div>
+    </motion.div>
   );
 };
 
 Terms.Layout = 'dashboard';
+
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: require(`../../lang/${locale}.json`),
+    },
+  };
+}
 
 export default Terms;
