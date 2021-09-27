@@ -1,4 +1,4 @@
-const AliasInput = ({
+const DescriptionInput = ({
   error,
   placeholder,
   onChange,
@@ -8,8 +8,8 @@ const AliasInput = ({
 }) => {
   return (
     <div className='relative'>
-      <input
-        type='text'
+      <textarea
+        //type=''
         placeholder={placeholder}
         name={name}
         ref={inputRef}
@@ -40,4 +40,4 @@ const AliasInput = ({
   );
 };
 
-export default AliasInput;
+export default DescriptionInput;

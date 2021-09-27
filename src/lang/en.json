@@ -1,190 +1,191 @@
 {
-  "rights": {
-    "placeholder": "all rigths reserved."
-  },
-  "lang": {
-    "label": "lang"
-  },
+	"rights": {
+		"placeholder": "all rigths reserved."
+	},
+	"lang": {
+		"label": "lang"
+	},
 
-  "nav": {
-    "about": "about",
-    "contact": "contact",
-    "sign-in": "login",
-    "sign-up": "sign up",
-    "shortener": "shortener",
-    "overview": "overview",
-    "button-signout": "close session"
-  },
-  "wellcome-message": {
-    "wellcome": "Wellcome to",
-    "description": "shorter and share your links"
-  },
-  "dashboard-overview": {
-    "page-title": "Overview",
-    "title": "overview"
-  },
-  "dashboard-shortener": {
-    "page-title": "Shortener",
-    "title": "shortener",
-    "card": {
-      "url": {
-        "placeholder": "url",
-        "error": {
-          "format": "only urls",
-          "required": "required"
-        }
-      },
-      "alias": {
-        "placeholder": "alias",
-        "label": "optional",
-        "error": {
-          "format": "only letters"
-        }
-      },
-      "quote": {
-        "placeholder": "quote the url"
-      },
-      "button": {
-        "placeholder": "shorter",
-        "loading-metadata": "loading metadata"
-      },
-      "metadata": {
-        "title": "title",
-        "description": "description"
-      },
-      "toast": {
-        "title": "url shortener",
-        "message-success": "url shortened successfully ",
-        "message-error": "url shortened error"
-      }
-    }
-  },
+	"nav": {
+		"about": "about",
+		"contact": "contact",
+		"sign-in": "login",
+		"sign-up": "sign up",
+		"shortener": "shortener",
+		"overview": "overview",
+		"button-signout": "close session"
+	},
+	"wellcome-message": {
+		"wellcome": "Wellcome to",
+		"description": "shorter and share your links"
+	},
+	"dashboard-overview": {
+		"page-title": "Overview",
+		"title": "overview"
+	},
+	"dashboard-shortener": {
+		"page-title": "Shortener",
+		"title": "shortener",
+		"card": {
+			"title": "short your url",
+			"url": {
+				"placeholder": "url",
+				"error": {
+					"format": "only urls",
+					"required": "required"
+				}
+			},
+			"description": {
+				"placeholder": "description",
+				"label": "optional",
+				"error": {
+					"format": "only letters"
+				}
+			},
+			"quote": {
+				"placeholder": "quote the url"
+			},
+			"button": {
+				"placeholder": "shorter",
+				"loading-metadata": "loading metadata"
+			},
+			"metadata": {
+				"title": "title",
+				"description": "description"
+			},
+			"toast": {
+				"title": "url shortener",
+				"message-created": "Url shortened successfully. Awaiting moderation.",
+				"message-found": "This url has already been entered in the system."
+			}
+		}
+	},
 
-  "contact": {
-    "page-title": "Contact",
-    "title": "contact"
-  },
+	"contact": {
+		"page-title": "Contact",
+		"title": "contact"
+	},
 
-  "about": {
-    "page-title": "About",
-    "title": "about"
-  },
-  "terms": {
-    "page-title": "Terms",
-    "title": "terms"
-  },
+	"about": {
+		"page-title": "About",
+		"title": "about"
+	},
+	"terms": {
+		"page-title": "Terms",
+		"title": "terms"
+	},
 
-  "sign-in": {
-    "page-title": "Sign In",
-    "card": {
-      "title": "login and go on",
-      "username": {
-        "placeholder": "user name",
-        "error": "required"
-      },
-      "password": {
-        "placeholder": "password",
-        "error": "required"
-      },
-      "bot-message": "Check you are not a robot",
-      "credentials-error": "the credentials are wrong.",
-      "confirm-email-error": "please confirm email.",
-      "forget-password": "I forgot the password.",
-      "confirm-email": "The email has been confirmed.",
-      "button": "login"
-    },
-    "card-forgot-password": {
-      "title": "send your email to confirm account.",
-      "email": {
-        "placeholder": "email",
-        "error": {
-          "required": "required",
-          "format": "only email"
-        }
-      },
-      "button": "send email",
-      "email-error": "this account not exits.",
-      "confirm-email": "please check your email to confirm account.",
-      "link-expired": "the email link expired, send your email againt."
-    },
-    "card-change-password": {
-      "title": "type the new password.",
-      "password": {
-        "placeholder": "password",
-        "error": {
-          "required": "required",
-          "format": "use capital letter, lower case and digit"
-        }
-      },
-      "confirmpassword": {
-        "placeholder": "confirm password",
-        "error": {
-          "required": "required",
-          "format": "password not match"
-        }
-      },
-      "password-changed": "your password has been changed please login",
-      "changed-password-error": "some error changing the password",
-      "button": "change password"
-    }
-  },
+	"sign-in": {
+		"page-title": "Sign In",
+		"card": {
+			"title": "login and go on",
+			"username": {
+				"placeholder": "user name",
+				"error": "required"
+			},
+			"password": {
+				"placeholder": "password",
+				"error": "required"
+			},
+			"bot-message": "Check you are not a robot",
+			"credentials-error": "the credentials are wrong.",
+			"confirm-email-error": "please confirm email.",
+			"forget-password": "I forgot the password.",
+			"confirm-email": "The email has been confirmed.",
+			"button": "login"
+		},
+		"card-forgot-password": {
+			"title": "send your email to confirm account.",
+			"email": {
+				"placeholder": "email",
+				"error": {
+					"required": "required",
+					"format": "only email"
+				}
+			},
+			"button": "send email",
+			"email-error": "this account not exits.",
+			"confirm-email": "please check your email to confirm account.",
+			"link-expired": "the email link expired, send your email againt."
+		},
+		"card-change-password": {
+			"title": "type the new password.",
+			"password": {
+				"placeholder": "password",
+				"error": {
+					"required": "required",
+					"format": "use capital letter, lower case and digit"
+				}
+			},
+			"confirmpassword": {
+				"placeholder": "confirm password",
+				"error": {
+					"required": "required",
+					"format": "password not match"
+				}
+			},
+			"password-changed": "your password has been changed please login",
+			"changed-password-error": "some error changing the password",
+			"button": "change password"
+		}
+	},
 
-  "referred-by": {
-    "placeholder": "referred by",
-    "email": "email"
-  },
-  "sign-up": {
-    "page-title": "Sign In",
-    "card": {
-      "title": "create your account",
-      "fullname": {
-        "placeholder": "full name",
-        "error": {
-          "required": "required",
-          "format": "only letters",
-          "length": "more than 3 characters"
-        }
-      },
-      "email": {
-        "placeholder": "email",
-        "error": {
-          "required": "required",
-          "format": "only email"
-        }
-      },
-      "username": {
-        "placeholder": "user name",
-        "error": {
-          "required": "required",
-          "format": "only alphanumeric",
-          "length": "more than 3 characters"
-        }
-      },
-      "password": {
-        "placeholder": "password",
-        "error": {
-          "required": "required",
-          "format": "use capital letter, lower case and digit"
-        }
-      },
-      "confirmpassword": {
-        "placeholder": "confirm password",
-        "error": {
-          "required": "required",
-          "format": "password not match"
-        }
-      },
-      "terms": {
-        "placeholder": "Accept all terms of use",
-        "error": {
-          "required": "Accept all terms of use"
-        }
-      },
-      "bot-message": "Check you are not a robot",
-      "credentials-error": "the user already exits.",
-      "sign-in-link": "I have a account",
-      "button": "register",
-      "confirm-email": "please check your email to confirm registration."
-    }
-  }
+	"referred-by": {
+		"placeholder": "referred by",
+		"email": "email"
+	},
+	"sign-up": {
+		"page-title": "Sign In",
+		"card": {
+			"title": "create your account",
+			"fullname": {
+				"placeholder": "full name",
+				"error": {
+					"required": "required",
+					"format": "only letters",
+					"length": "more than 3 characters"
+				}
+			},
+			"email": {
+				"placeholder": "email",
+				"error": {
+					"required": "required",
+					"format": "only email"
+				}
+			},
+			"username": {
+				"placeholder": "user name",
+				"error": {
+					"required": "required",
+					"format": "only alphanumeric",
+					"length": "more than 3 characters"
+				}
+			},
+			"password": {
+				"placeholder": "password",
+				"error": {
+					"required": "required",
+					"format": "use capital letter, lower case and digit"
+				}
+			},
+			"confirmpassword": {
+				"placeholder": "confirm password",
+				"error": {
+					"required": "required",
+					"format": "password not match"
+				}
+			},
+			"terms": {
+				"placeholder": "Accept all terms of use",
+				"error": {
+					"required": "Accept all terms of use"
+				}
+			},
+			"bot-message": "Check you are not a robot",
+			"credentials-error": "the user already exits.",
+			"sign-in-link": "I have a account",
+			"button": "register",
+			"confirm-email": "please check your email to confirm registration."
+		}
+	}
 }

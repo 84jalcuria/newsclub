@@ -1,190 +1,191 @@
 {
-  "rights": {
-    "placeholder": "todos los derechos reservados."
-  },
-  "lang": {
-    "label": "leng"
-  },
-  "nav": {
-    "about": "acerca de",
-    "contact": "contactos",
-    "sign-in": "iniciar",
-    "sign-up": "registrarse",
-    "shortener": "acortador",
-    "overview": "panorama",
-    "button-signout": "cerrar sesion"
-  },
-  "wellcome-message": {
-    "wellcome": "Bienvenido a",
-    "description": "acorta y comparte tus enlaces."
-  },
-  "dashboard-overview": {
-    "page-title": "Panorama",
-    "title": "Panorama"
-  },
-  "dashboard-shortener": {
-    "page-title": "Acortador",
-    "title": "acortador",
-    "card": {
-      "url": {
-        "placeholder": "url",
-        "error": {
-          "format": "solo url",
-          "required": "requerido"
-        }
-      },
-      "alias": {
-        "placeholder": "alias",
-        "label": "opcional",
-        "error": {
-          "format": "solo letras"
-        }
-      },
-      "quote": {
-        "placeholder": "monetiza la url"
-      },
-      "button": {
-        "placeholder": "acortador",
-        "loading-metadata": "cargando metadata"
-      },
-      "metadata": {
-        "title": "titulo",
-        "description": "descripcion"
-      },
-      "toast": {
-        "title": "acortador de url",
-        "message-success": "url acortada satisfactoriamente",
-        "message-error": "url acortada con error"
-      }
-    }
-  },
+	"rights": {
+		"placeholder": "todos los derechos reservados."
+	},
+	"lang": {
+		"label": "leng"
+	},
+	"nav": {
+		"about": "acerca de",
+		"contact": "contactos",
+		"sign-in": "iniciar",
+		"sign-up": "registrarse",
+		"shortener": "acortador",
+		"overview": "panorama",
+		"button-signout": "cerrar sesion"
+	},
+	"wellcome-message": {
+		"wellcome": "Bienvenido a",
+		"description": "acorta y comparte tus enlaces."
+	},
+	"dashboard-overview": {
+		"page-title": "Panorama",
+		"title": "Panorama"
+	},
+	"dashboard-shortener": {
+		"page-title": "Acortador",
+		"title": "acortador",
+		"card": {
+			"title": "acorte su url",
+			"url": {
+				"placeholder": "url",
+				"error": {
+					"format": "solo url",
+					"required": "requerido"
+				}
+			},
+			"description": {
+				"placeholder": "descripcion",
+				"label": "opcional",
+				"error": {
+					"format": "solo letras"
+				}
+			},
+			"quote": {
+				"placeholder": "monetiza la url"
+			},
+			"button": {
+				"placeholder": "acortador",
+				"loading-metadata": "cargando metadata"
+			},
+			"metadata": {
+				"title": "titulo",
+				"description": "descripcion"
+			},
+			"toast": {
+				"title": "Acortador de Url.",
+				"message-created": "Url acortada satisfactoriamente. En espera de moderacion.",
+				"message-found": "Esta url ya ha sido introducida en el sistema."
+			}
+		}
+	},
 
-  "contact": {
-    "page-title": "Contactos",
-    "title": "contactos"
-  },
+	"contact": {
+		"page-title": "Contactos",
+		"title": "contactos"
+	},
 
-  "about": {
-    "page-title": "Acerca",
-    "title": "acerca de"
-  },
+	"about": {
+		"page-title": "Acerca",
+		"title": "acerca de"
+	},
 
-  "terms": {
-    "page-title": "Terminos",
-    "title": "Terminos"
-  },
+	"terms": {
+		"page-title": "Terminos",
+		"title": "Terminos"
+	},
 
-  "sign-in": {
-    "page-title": "Iniciar Sesion",
+	"sign-in": {
+		"page-title": "Iniciar Sesion",
 
-    "card": {
-      "title": "inicie sesion y continue",
-      "username": {
-        "placeholder": "nombre de usuario",
-        "error": "requirido"
-      },
-      "password": {
-        "placeholder": "contraseña",
-        "error": "requerido"
-      },
-      "bot-message": "Chequea que no eres un robot.",
-      "credentials-error": "las credenciales son incorrectas.",
-      "confirm-email-error": "por favor confirme el correo.",
-      "forget-password": "Ovide la contraseña.",
-      "confirm-email": "El correo ha sido confirmado.",
-      "button": "Iniciar Session"
-    },
-    "card-forgot-password": {
-      "title": "envia tu correo para confirmar la cuenta.",
-      "email": {
-        "placeholder": "correo",
-        "error": {
-          "required": "requirido",
-          "format": "solo correo"
-        }
-      },
-      "button": "envia correo",
-      "email-error": "la cuenta no existe.",
-      "confirm-email": "por favor chequea el correo para confirmar la cuenta.",
-      "link-expired": "el enlace del correo expiro, envie su correo nuevamente."
-    },
-    "card-change-password": {
-      "title": "escriba la nueva contraseña.",
-      "password": {
-        "placeholder": "contraseña",
-        "error": {
-          "required": "requerido",
-          "format": "use letra mayuscula, minuscula y digito"
-        }
-      },
-      "confirmpassword": {
-        "placeholder": "confirme contraseña",
-        "error": {
-          "required": "requerido",
-          "format": "la contraseña no coincide"
-        }
-      },
-      "password-changed": "su contraseña ha sido cambiada por favor inicie sesion",
-      "changed-password-error": "algun error cambiando contraseña",
-      "button": "cambiar contraseña"
-    }
-  },
-  "referred-by": {
-    "placeholder": "referido por",
-    "email": "correo"
-  },
-  "sign-up": {
-    "page-title": "Registrarse",
-    "card": {
-      "title": "cree su cuenta",
-      "fullname": {
-        "placeholder": "nombre completo",
-        "error": {
-          "required": "requerido",
-          "format": "solo letras",
-          "length": "mas de 3 caracteres"
-        }
-      },
-      "email": {
-        "placeholder": "correo electronico",
-        "error": {
-          "required": "requerido",
-          "format": "solo correo"
-        }
-      },
-      "username": {
-        "placeholder": "nombre de usuario",
-        "error": {
-          "required": "requerido",
-          "format": "solo alfanumerico",
-          "length": "mas de 3 caracteres"
-        }
-      },
-      "password": {
-        "placeholder": "contraseña",
-        "error": {
-          "required": "requerido",
-          "format": "use letra mayuscula, minuscula y digito"
-        }
-      },
-      "confirmpassword": {
-        "placeholder": "confirme contraseña",
-        "error": {
-          "required": "requerido",
-          "format": "contraseña no coincide"
-        }
-      },
-      "terms": {
-        "placeholder": "Acepto todos los terminos de uso",
-        "error": {
-          "required": "Acepte todos los terminos de uso"
-        }
-      },
-      "bot-message": "Chequea que no eres un robot.",
-      "credentials-error": "el usuario ya existe.",
-      "sign-in-link": "Tengo una cuenta.",
-      "button": "registrarse",
-      "confirm-email": "por favor chequee su email para confirmar registro."
-    }
-  }
+		"card": {
+			"title": "inicie sesion y continue",
+			"username": {
+				"placeholder": "nombre de usuario",
+				"error": "requirido"
+			},
+			"password": {
+				"placeholder": "contraseña",
+				"error": "requerido"
+			},
+			"bot-message": "Chequea que no eres un robot.",
+			"credentials-error": "las credenciales son incorrectas.",
+			"confirm-email-error": "por favor confirme el correo.",
+			"forget-password": "Ovide la contraseña.",
+			"confirm-email": "El correo ha sido confirmado.",
+			"button": "Iniciar Session"
+		},
+		"card-forgot-password": {
+			"title": "envia tu correo para confirmar la cuenta.",
+			"email": {
+				"placeholder": "correo",
+				"error": {
+					"required": "requirido",
+					"format": "solo correo"
+				}
+			},
+			"button": "envia correo",
+			"email-error": "la cuenta no existe.",
+			"confirm-email": "por favor chequea el correo para confirmar la cuenta.",
+			"link-expired": "el enlace del correo expiro, envie su correo nuevamente."
+		},
+		"card-change-password": {
+			"title": "escriba la nueva contraseña.",
+			"password": {
+				"placeholder": "contraseña",
+				"error": {
+					"required": "requerido",
+					"format": "use letra mayuscula, minuscula y digito"
+				}
+			},
+			"confirmpassword": {
+				"placeholder": "confirme contraseña",
+				"error": {
+					"required": "requerido",
+					"format": "la contraseña no coincide"
+				}
+			},
+			"password-changed": "su contraseña ha sido cambiada por favor inicie sesion",
+			"changed-password-error": "algun error cambiando contraseña",
+			"button": "cambiar contraseña"
+		}
+	},
+	"referred-by": {
+		"placeholder": "referido por",
+		"email": "correo"
+	},
+	"sign-up": {
+		"page-title": "Registrarse",
+		"card": {
+			"title": "cree su cuenta",
+			"fullname": {
+				"placeholder": "nombre completo",
+				"error": {
+					"required": "requerido",
+					"format": "solo letras",
+					"length": "mas de 3 caracteres"
+				}
+			},
+			"email": {
+				"placeholder": "correo electronico",
+				"error": {
+					"required": "requerido",
+					"format": "solo correo"
+				}
+			},
+			"username": {
+				"placeholder": "nombre de usuario",
+				"error": {
+					"required": "requerido",
+					"format": "solo alfanumerico",
+					"length": "mas de 3 caracteres"
+				}
+			},
+			"password": {
+				"placeholder": "contraseña",
+				"error": {
+					"required": "requerido",
+					"format": "use letra mayuscula, minuscula y digito"
+				}
+			},
+			"confirmpassword": {
+				"placeholder": "confirme contraseña",
+				"error": {
+					"required": "requerido",
+					"format": "contraseña no coincide"
+				}
+			},
+			"terms": {
+				"placeholder": "Acepto todos los terminos de uso",
+				"error": {
+					"required": "Acepte todos los terminos de uso"
+				}
+			},
+			"bot-message": "Chequea que no eres un robot.",
+			"credentials-error": "el usuario ya existe.",
+			"sign-in-link": "Tengo una cuenta.",
+			"button": "registrarse",
+			"confirm-email": "por favor chequee su email para confirmar registro."
+		}
+	}
 }
