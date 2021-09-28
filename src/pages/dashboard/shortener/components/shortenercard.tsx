@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import UrlInput from "@/pages/dashboard/shortener/components/urlinput";
-import DescriptionInput from "@/pages/dashboard/shortener/components/aliasinput";
+import DescriptionInput from "@/pages/dashboard/shortener/components/descriptioninput";
 import ShortenerButton from "@/pages/dashboard/shortener/components/shortenerbutton";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "@/components/common/errormessage";
@@ -86,13 +86,7 @@ const ShortenerCard = () => {
 		},
 	});
 
-	const description = register("description", {
-		pattern: {
-			value:
-				/^([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]+)([A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]*)$/,
-			message: t("description.error.format"),
-		},
-	});
+	const description = register("description");
 
 	const quote = register("quote");
 
@@ -138,12 +132,6 @@ const ShortenerCard = () => {
 							onBlur={description.onBlur}
 							error={!!errors?.description}
 						/>
-						{errors?.description && (
-							<div className='absolute sm:top-16 sm:left-0'>
-								{" "}
-								<ErrorMessage message={errors.description.message} />
-							</div>
-						)}
 					</div>
 				</div>
 				{/*-----------------CheckBox--------------------*/}
